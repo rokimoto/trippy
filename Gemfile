@@ -54,7 +54,10 @@ group :development, :test do
   gem 'spring'
 end
 
-group :production do 
+group :production do
   gem 'rails_12factor'
   gem 'thin'
+
+  gem 'yelp'
+
 end
