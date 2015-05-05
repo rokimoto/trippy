@@ -16,6 +16,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def create_facebook
+    user = User.from_omniauth(request.env['omniauth.auth'])
+    session[:user_id] = user.id
+    redirect_to loggedin_path
+  end
+
   def loggedin
   end
 

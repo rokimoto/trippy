@@ -27,7 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'thin'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'figaro'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -45,4 +48,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do 
+  gem 'rails_12factor'
+  gem 'thin'
 end
