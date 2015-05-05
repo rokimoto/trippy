@@ -3,8 +3,14 @@ Rails.application.routes.draw do
    # This action should be created in the routes and controllers to create a splash page!
    # ------------------------------------------------------------------------------------
    root 'static_pages#splash'
+   resources :locations
+   resources :users do
+      resources :reviews
+      end
 
-   resources :users
+   resources :locations
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
