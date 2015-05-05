@@ -31,6 +31,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
 
+gem 'geocoder'
+
+gem 'gmaps4rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
