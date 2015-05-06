@@ -32,7 +32,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 
 gem 'geocoder'
-
+  gem 'yelp'
 gem 'gmaps4rails'
 
 # Use Unicorn as the app server
@@ -57,7 +57,5 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'thin'
-
-  gem 'yelp'
 
 end
