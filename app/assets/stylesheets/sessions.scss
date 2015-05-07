@@ -1,3 +1,31 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+
+}
+
+.login_form {
+  margin-top: 10%;
+}
+
+.phoneImg {
+  background-image: url('phones.png');
+}
+
+.orangetxt {
+  color: #FF8000;
+}
+
+.orange {
+  background-color: #FF8000;
+  color: white;
+}
+
+.form-wrapper input[type="submit"] {
+  background-color: #FF8000;
+}
+
+.fbBox {
+  text-align: center;
+}
