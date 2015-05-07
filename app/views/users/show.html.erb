@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+<p><%= image_tag @user.profile_picture.url if @user.profile_picture? %></p>
+
+
+<% if current_user.id == @user.id %>
+  <p><%= link_to "Edit Profile", edit_user_path %></p>
+<% end %>
