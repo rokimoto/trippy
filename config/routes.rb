@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'reviews/new'
+
+  get 'reviews/show'
+
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   get "loggedin" => "sessions#loggedin"
