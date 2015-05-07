@@ -17,6 +17,14 @@
 @import 'bootstrap';
 .navbar{
    background: #ff6f00;
+   border: none;
+   .tops{
+      margin-left: 10px;
+      margin-top: 15px;
+      color: #00bcd4;
+      border: none;
+      background: white;
+   }
 }
 
 .header-btn{
