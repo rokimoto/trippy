@@ -5,38 +5,39 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-
+<!-- NAVBAR -->
    <nav class="navbar navbar-default col-md-12">
       <div class="container-fluid">
         <% if current_user %>
 <!-- Logo Image -->
-         <%= image_tag("logo_color_svg.svg", :class => "logo")  %>
-
-<!-- Link to Map Page -->
-         <button type="button" class="btn btn-default navbar-btn navbar-right nvbtn"><%= link_to "Places", locations_path %></button>
+         <%= image_tag("logo_white_svg.svg", :class => "logo")  %>
 
 <!-- DROP DOWN BUTTON CODE BLOCK -->
          <div class="btn-group navbar-right">
-           <button type="button" class="btn btn-default navbar-btn dropdown-toggle nvbtn" data-toggle="dropdown" aria-expanded="false">
-             Options <span class="caret"></span>
+           <button type="button" class="btn navbar-btn dropdown-toggle nvbtn" data-toggle="dropdown" aria-expanded="false">
+             Click Here <span class="caret"></span>
            </button>
-           <ul class="dropdown-menu" role="menu">
+           <ul class="dropdown-menu dropmen" role="menu">
+             <!-- Link to Map Page -->
              <li><%= link_to "Places", locations_path %></li>
+             <!-- Link to User Profile -->
              <li><%= link_to "Profile", user_path(current_user) %></li>
+             <!-- Logs User out, redirects them to Splash Page -->
              <li><%= link_to "Logout", sessions_path, method: :delete %></li>
            </ul>
          </div>
 
 <!-- Text in Navbar -->
-         <div class="navbar-right panel panel-default" id="navtext">Logged in as: <%= current_user.username || current_user.name %></div>
+         <div class="navbar-right" id="navtext">Logged in as: <%= current_user.username || current_user.name %></div>
 
 
-<!-- NAVBAR Display if not logged in -->
+<!-- NAVBAR Display if NOT logged in -->
        <% else %>
-         <%= image_tag("logo_color_svg.svg", :class => "logo")  %>
+         <%= image_tag("logo_white_svg.svg", :class => "logo")  %>
          <button type="button" class="header-btn btn btn-default navbar-btn navbar-right"><%= link_to "Sign Up", users_new_path %></button>
          <button type="button" class="btn btn-default navbar-btn navbar-right"><%= link_to "Login", login_path %></button>
 
@@ -44,10 +45,14 @@
       </div>
    </nav>
 <!-- END OF NAVBAR -->
+
 <!-- YIELDED PAGE CONTENT -->
+<section>
    <div class="page">
       <%= yield %>
    </div>
+</section>
+<!-- FOOTER -->
 
 </body>
 </html>
