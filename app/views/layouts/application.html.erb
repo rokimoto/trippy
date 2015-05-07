@@ -12,11 +12,29 @@
    <nav class="navbar navbar-default col-md-12">
       <div class="container-fluid">
         <% if current_user %>
+<!-- Logo Image -->
          <%= image_tag("logo_color_svg.svg", :class => "logo")  %>
-         <button type="button" class="btn btn-default navbar-btn navbar-right"><%= link_to "Places", locations_path %></button>
-         <div class="navbar-right">You are logged in as: <%= current_user.username || current_user.name %></div>
-         <button type="button" class="btn btn-default navbar-btn navbar-right"><%= link_to "Logout", sessions_path, method: :delete %></button>
 
+<!-- Link to Map Page -->
+         <button type="button" class="btn btn-default navbar-btn navbar-right nvbtn"><%= link_to "Places", locations_path %></button>
+
+<!-- DROP DOWN BUTTON CODE BLOCK -->
+         <div class="btn-group navbar-right">
+           <button type="button" class="btn btn-default navbar-btn dropdown-toggle nvbtn" data-toggle="dropdown" aria-expanded="false">
+             Options <span class="caret"></span>
+           </button>
+           <ul class="dropdown-menu" role="menu">
+             <li><%= link_to "Places", locations_path %></li>
+             <li><%= link_to "Profile", user_path(current_user) %></li>
+             <li><%= link_to "Logout", sessions_path, method: :delete %></li>
+           </ul>
+         </div>
+
+<!-- Text in Navbar -->
+         <div class="navbar-right panel panel-default" id="navtext">Logged in as: <%= current_user.username || current_user.name %></div>
+
+
+<!-- NAVBAR Display if not logged in -->
        <% else %>
          <%= image_tag("logo_color_svg.svg", :class => "logo")  %>
          <button type="button" class="header-btn btn btn-default navbar-btn navbar-right"><%= link_to "Sign Up", users_new_path %></button>
@@ -25,7 +43,8 @@
        <% end %>
       </div>
    </nav>
-
+<!-- END OF NAVBAR -->
+<!-- YIELDED PAGE CONTENT -->
    <div class="page">
       <%= yield %>
    </div>
