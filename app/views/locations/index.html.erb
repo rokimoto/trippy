@@ -5,31 +5,33 @@
 
 <section>
 
+<div class="row">
+   <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
 
-<div class="search_bar well col-lg-12">
+      <div class="search_bar col-lg-12">
+          <p><span class="subtitle">Search For Anything  </span>
+             <%= text_field_tag :search, params[:search], class: "inputting" %>
+             <span>Search by:</span>
+             <%= label_tag(:name, "Name") %>
+             <%= radio_button_tag(:search_type, "Name", true) %>
+             <%= label_tag(:location, "Location") %>
+             <%= radio_button_tag(:search_type, "Location") %>
+             <%= submit_tag "Go!", :name => nil, class: 'search_btn' %>
+          </p>
+      </div>
 
-   <h1>List of Locations</h1>
-
-   <%= form_tag locations_path, :method => :get do %>
-     <p>
-       <%= text_field_tag :search, params[:search] %>
-       <%= radio_button_tag(:search_type, "Name", true) %>
-       <%= label_tag(:name, "Seach by name") %>
-       <%= radio_button_tag(:search_type, "Location") %>
-       <%= label_tag(:location, "Search by location") %>
-       <%= submit_tag "Search", :name => nil %>
-     </p>
    <% end %>
 </div>
 </section>
 
-<div class="circle_map col-lg-5 col-lg-offset-1"id="map"></div>
+<div class="left">
 
+   <div class="circle_map col-lg-5 col-lg-offset-1"id="map"></div>
 
-<% if @target %>
-<h1>You searched: <%= @target.name %></h1>
-<% end %>
-
+   <% if @target %>
+   <h1>You searched: <%= @target.name %></h1>
+   <% end %>
+</div>
 
 <div class="location_list col-lg-4 col-lg-offset-1">
    <h2>Nearby locations</h2>
@@ -46,6 +48,8 @@
      <%= link_to "Add location", new_location_path %>
    <% end %>
 </div>
+
+</section>
 
 <script>
 handler = Gmaps.build('Google');
