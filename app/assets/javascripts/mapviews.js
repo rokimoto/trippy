@@ -19,7 +19,7 @@ $(document).ready(function() {
   if (getQueryVariable("search")) {
 
     if (getQueryVariable("search_type") == "Name") {
-      console.log("search name");
+
       $.get('http://localhost:3000/api/locations_api/search_name?search=' + searchTerm, function(data) {
        
         var marker_array = [];
@@ -50,42 +50,35 @@ $(document).ready(function() {
     
     // else the search_type is "Location"
     else {
-      console.log("search location");
-    $.get('http://localhost:3000/api/locations_api/search_location?search=' + searchTerm, function(data) {
-       
-      var marker_array = [];
+      $.get('http://localhost:3000/api/locations_api/search_location?search=' + searchTerm, function(data) {
+         
+        var marker_array = [];
 
-      for (var i = 0; i < data.length; i++) {
-        var mark = new google.maps.Marker({
-   
-        "lat": data[i].latitude,
-        "lng": data[i].longitude,
-        "picture": {
-          "url": "http://icons.iconarchive.com/icons/icons8/windows-8/16/Food-Mushroom-icon.png",
-          "width":  36,
-          "height": 36
-        },
-        "infowindow": data[i].name
+        for (var i = 0; i < data.length; i++) {
+          var mark = new google.maps.Marker({
+     
+          "lat": data[i].latitude,
+          "lng": data[i].longitude,
+          "picture": {
+            "url": "http://icons.iconarchive.com/icons/icons8/windows-8/16/Food-Mushroom-icon.png",
+            "width":  36,
+            "height": 36
+          },
+          "infowindow": data[i].name
 
-        }); // end new googlemaps.Marker
+          }); // end new googlemaps.Marker
 
-      marker_array.push(mark);
-        
-      }// end for loop
+        marker_array.push(mark);
+          
+        }// end for loop
 
-
-
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers(marker_array);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-      }); // end handle.buildMap
-    }); // end get
-
-
-
-
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers(marker_array);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        }); // end handle.buildMap
+      }); // end get
 
     }
 
