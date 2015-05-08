@@ -7,8 +7,7 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
-<body>
-
+<body class="<%= controller_name %> <%= action_name %>">
 <!-- NAVBAR -->
    <nav class="navbar navbar-default navbar-fixed-top col-lg-12">
       <div class="container-fluid">
@@ -44,7 +43,9 @@
 
 <!-- NAVBAR Display if NOT logged in -->
        <% else %>
+       <%= link_to root_path do %>
          <%= image_tag("logo_white_svg.svg", :class => "logo")  %>
+         <% end %>
          <button type="button" class="tops btn btn-default navbar-btn navbar-right"><%= link_to "Sign Up", users_new_path %></button>
          <button type="button" class="tops btn btn-default navbar-btn navbar-right"><%= link_to "Login", login_path %></button>
 

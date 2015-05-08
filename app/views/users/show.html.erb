@@ -1,7 +1,21 @@
-<h1><%= @user.name %></h1>
-<p><%= image_tag @user.profile_picture.url if @user.profile_picture? %></p>
+<div class="proinfo col-lg-3">
+   <div class="container">
+      <div class="row col-lg-6 col-lg-offset-3">
+         <h1><%= @user.name %></h1>
+      </div>
+      <div class="row">
+         <%= image_tag @user.profile_picture.url, class: 'proimage' if @user.profile_picture? %>
+      </div>
 
+      <% if current_user.id == @user.id %>
+        <%= link_to "Edit Profile", edit_user_path %>
+      <% end %>
+      <br />
+      <%= @user.bio %>
 
-<% if current_user.id == @user.id %>
-  <p><%= link_to "Edit Profile", edit_user_path %></p>
-<% end %>
+   </div>
+
+</div>
+<div class="pickles col-lg-9">
+
+</div>

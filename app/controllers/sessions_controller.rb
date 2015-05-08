@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to loggedin_path
+      redirect_to locations_path
     else
       render 'new'
     end
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def create_facebook
     user = User.from_omniauth(request.env['omniauth.auth'])
     session[:user_id] = user.id
-    redirect_to loggedin_path
+    redirect_to locations_path
   end
 
   def loggedin
