@@ -15,7 +15,46 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+.navbar{
+   background: #ff6f00;
+   border: none;
+   .tops{
+      margin-left: 10px;
+      margin-top: 15px;
+      color: #00bcd4;
+      border: none;
+      background: white;
+   }
+}
 
 .header-btn{
    margin-left: 15px;
+   color: black;
+   font-family: 'Josefin Sans', sans-serif;
+   font-size: 2em;
+}
+.logo{
+   width: 120px;
+}
+.nvbtn{
+   margin-left: 10px;
+   margin-top: 15px;
+   color: #ff6f00;
+   background: white;
+   font-size: 1.1em;
+   .dropmen{
+      li{
+         font-family: 'Josefin Sans', sans-serif;
+      }
+      li:hover{
+         background: #80deea;
+      }
+   }
+}
+#navtext{
+   color: white;
+   font-family: 'Josefin Sans', sans-serif;
+   font-size: 1.3em;
+   margin-top: 22px;
+   margin-right: 10px;
 }

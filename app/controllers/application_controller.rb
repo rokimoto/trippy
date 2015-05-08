@@ -20,4 +20,12 @@ class ApplicationController < ActionController::Base
   def require_admin
     redirect_to '/login' unless current_user.admin?
   end
+
+  def is_user?
+    current_user == User.find(params[:id])
+  end
+
+  def who_is_user
+    redirect_to 'login' unless is_user?
+  end
 end

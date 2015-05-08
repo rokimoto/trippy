@@ -26,12 +26,21 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'yelp'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
 
 
+gem 'geocoder'
+gem 'yelp'
+gem 'gmaps4rails'
+
+
+
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '3.8.0'
+gem 'fog', '1.23.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -42,6 +51,7 @@ gem 'figaro'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'better_errors'

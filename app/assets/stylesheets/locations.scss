@@ -1,3 +1,38 @@
 // Place all the styles related to the locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.search_bar{
+   p{
+      margin-left: 25px;
+      font-size: 1.3em;
+      font-family: 'Josefin Sans', sans-serif;
+      span{
+         margin-top: 5px;
+         color: #ff6f00;
+         font-size: 1.5em;
+      }
+      .inputting{
+         height: 30px;
+         border: 2px solid #ff6f00;
+         border-radius: 50px;
+         background: white;
+         color: black;
+         padding-top: 10px;
+      }
+      .search_btn{
+         background: #ff6f00;
+         border-radius: 10px;
+         color: white;
+         box-shadow: none;
+         border: none;
+         padding-top: 5px;
+      }
+   }
+}
+.circle_map{
+      height: 550px;
+      border-radius: 50%;
+}
+.location_list{
+   background-color: #ff6f00;
+}

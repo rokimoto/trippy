@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'reviews/new'
+
+  get 'reviews/show'
+
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   get "loggedin" => "sessions#loggedin"
@@ -15,7 +19,7 @@ Rails.application.routes.draw do
 
   root 'users#new'
 
-
+  get 'users/:id' => 'users#show'
    # This action should be created in the routes and controllers to create a splash page!
    # ------------------------------------------------------------------------------------
    resources :locations
