@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Welcome to Trippy @user.name!"
       session[:user_id] = @user.id
-      redirect_to loggedin_path
+      redirect_to user_path(@user)
     else
       flash[:danger] = @user.errors.full_messages.to_sentence
       render 'new'
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params 
+  def user_params
     params.require(:user).permit(:name, :username, :email, :profile_picture, :password, :password_confirmation)
   end
 
