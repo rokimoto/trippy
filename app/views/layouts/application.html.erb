@@ -10,7 +10,7 @@
 <body>
 
 <!-- NAVBAR -->
-   <nav class="navbar navbar-default col-md-12">
+   <nav class="navbar navbar-default navbar-fixed-top col-lg-12">
       <div class="container-fluid">
         <% if current_user %>
 <!-- Logo Image -->
@@ -30,6 +30,8 @@
              <li><%= link_to "Profile", user_path(current_user) %></li>
              <!-- Logs User out, redirects them to Splash Page -->
              <li><%= link_to "Logout", sessions_path, method: :delete %></li>
+             <!--  -->
+             <li><%= link_to "About", about_path %></li>
            </ul>
          </div>
 

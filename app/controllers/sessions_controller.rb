@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   before_action :require_user, only: [:loggedin]
-  
+
   def new
     @user = User.new
   end
@@ -29,5 +29,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to login_path
   end
-
 end
