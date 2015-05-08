@@ -1,30 +1,25 @@
 <div class="row">
 
 <!-- Login -->
-    <div class="form-horizontal">
 
-        <h1 class="text-center">Login with Email</h1>
+           <div class="text-center col-lg-4 col-lg-offset-4">
+             <h1>Login with Email</h1>
+             <%= form_tag('login', method: 'post') do %>
+               <br> <%= email_field_tag :email, placeholder:'Email', class:'form-control' %>
+               <br> <%= password_field_tag :password, placeholder:'Password', class:'form-control' %>
+               <br> <%= submit_tag "Login", class: "orange btn" %>
+             <% end %>
 
-        <div class="form-group">
-           <%= form_tag('login', method: "post") do %>
-               <%= email_field_tag :email, value: "Email" %>
-               <br />
-               <%= password_field_tag :password, value: "Password" %>
-               <br />
-               <%= submit_tag "Login", class: "orange btn" %>
-           <% end %>
 
-        </div>
 
       <!-- Facebook Login -->
-      <div class="col-lg-4 col-lg-offset-4 text-center">
-            <h1>Login with Facebook</h1>
-            <%= link_to "/auth/facebook" do %>
-            <div class="btn btn-primary btn-lg">
-              Sign up with Facebook
-            </div>
-          <% end %>
-      </div>
+               <h1>Login with Facebook</h1>
+               <%= link_to "/auth/facebook" do %>
+               <div class="btn btn-primary btn-lg">
+                 Sign up with Facebook
+               </div>
+             <% end %>
+          </div>
 
     </div>
   </div>
