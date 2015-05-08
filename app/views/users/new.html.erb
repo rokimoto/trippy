@@ -1,5 +1,4 @@
 
-<div class="container">
   <div class="row">
       <div class="fbBox">
       <!-- Facebook Login -->
@@ -17,7 +16,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4 col-lg-offset-1">
         <h1>Sign Up</h1>
         <%= form_for @user do |f| %>
           <br> <%= f.text_field :name, placeholder:'Name', class:'form-control' %>
@@ -28,10 +27,9 @@
           <p><%= f.submit "Create Account", class: "orange btn" %></p>
         <% end %>
       </div>
-      <%= image_tag "phones.png" %>
+      <%= image_tag "phones.png", class: 'col-lg-offset-2'%>
 
     </div>
 
 
   </div>
-</div>
