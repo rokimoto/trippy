@@ -1,25 +1,28 @@
+
+<!-- Flash messages -->
+<%= render 'layouts/flash' %>
+<!-- end of flash messages -->
+
 <div class="row">
 
 <!-- Login -->
 
-           <div class="text-center col-lg-4 col-lg-offset-4">
-             <h1>Login with Email</h1>
-             <%= form_tag('login', method: 'post') do %>
-               <br> <%= email_field_tag :email, placeholder:'Email', class:'form-control' %>
-               <br> <%= password_field_tag :password, placeholder:'Password', class:'form-control' %>
-               <br> <%= submit_tag "Login", class: "orange btn" %>
-             <% end %>
+     <div class="text-center col-lg-4 col-lg-offset-4">
+       <h1>Login with Email</h1>
+       <%= form_tag('login', method: 'post') do %>
+         <br> <%= email_field_tag :email, placeholder:'Email', class:'form-control' %>
+         <br> <%= password_field_tag :password, placeholder:'Password', class:'form-control' %>
+         <br> <%= submit_tag "Login", class: "orange btn" %>
+       <% end %>
 
 
 
-      <!-- Facebook Login -->
-               <h1>Login with Facebook</h1>
-               <%= link_to "/auth/facebook" do %>
-               <div class="btn btn-primary btn-lg">
-                 Sign up with Facebook
-               </div>
-             <% end %>
-          </div>
-
+   <!-- Facebook Login -->
+         <h1>Login with Facebook</h1>
+         <%= link_to "/auth/facebook" do %>
+         <div class="btn btn-primary btn-lg">
+           Sign up with Facebook
+         </div>
+       <% end %>
     </div>
-  </div>
+</div>

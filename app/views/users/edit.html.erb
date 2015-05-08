@@ -1,3 +1,7 @@
+<!-- Flash messages -->
+<%= render 'layouts/flash' %>
+<!-- end of flash messages -->
+
 <h1>Edit Profile</h1>
 <%= form_for @user do |f| %>
   <p><%= f.label :name %>: <%= f.text_field :name %> </p>
