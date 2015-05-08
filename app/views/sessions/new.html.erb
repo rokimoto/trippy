@@ -1,25 +1,25 @@
-
-<div class="container">
-  <div class="row">
-
-    <div class="logo_login"></div>
+<div class="row">
 
 <!-- Login -->
-    <div class="login_form">
-      <div class="col-md-12 col-md-offset-4">
-        <h1>Login with Email</h1>
-        <%= form_tag('login', method: "post") do %>
-          <p>Email: <%= email_field_tag :email %></p>
-          <p>Password: <%= password_field_tag :password %></p>
-          <p><%= submit_tag "Login" %></p>
-        <% end %>
-      </div>
+    <div class="form-horizontal">
 
+        <h1 class="text-center">Login with Email</h1>
 
-<!-- Facebook Login -->
-      <div class="col-md-12 col-md-offset-4">
-        <h1>Login with Facebook</h1>
-          <%= link_to "/auth/facebook" do %>
+        <div class="form-group">
+           <%= form_tag('login', method: "post") do %>
+               <%= email_field_tag :email, value: "Email" %>
+               <br />
+               <%= password_field_tag :password, value: "Password" %>
+               <br />
+               <%= submit_tag "Login", class: "orange btn" %>
+           <% end %>
+
+        </div>
+
+      <!-- Facebook Login -->
+      <div class="col-lg-4 col-lg-offset-4 text-center">
+            <h1>Login with Facebook</h1>
+            <%= link_to "/auth/facebook" do %>
             <div class="btn btn-primary btn-lg">
               Sign up with Facebook
             </div>
@@ -28,4 +28,3 @@
 
     </div>
   </div>
-</div>
