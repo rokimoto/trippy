@@ -30,7 +30,10 @@ Rails.application.routes.draw do
   resources :locations
 
   namespace :api do
+    get 'locations_api/search_name' => 'locations_api#search_name'
+    get 'locations_api/search_location' => 'locations_api#search_location'
     resources :locations_api
+
   end
 
 
