@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'reviews/new'
-
-  get 'reviews/show'
+  resources :reviews
 
   get "login" => "sessions#new"
   post "login" => "sessions#create"

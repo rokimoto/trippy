@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   validates :username, :email, :name, :password, presence: true, unless: -> { from_omniauth? }
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :comments
   has_many :reviews
 

@@ -42,10 +42,11 @@
    <h2>Nearby locations</h2>
      <% @locations.each do |location| %>
      <p>
-       Name: <%= link_to location.name, location_path(location) %>
-       Address: <%= location.address %>
-       Latitude: <%= location.latitude %>
-       Longitude: <%= location.longitude %>
+       <strong><%= link_to location.name, location_path(location) %></strong><% if location.reviews.any? %>: 
+          <% location.average_rating.to_i.times do %>
+            <span class="glyphicon glyphicon-star">
+          <% end %>
+        <% end %>
      </p>
      <% end %>
    <% end %>
