@@ -6,8 +6,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      redirect_to locations_path
+      flash[:success] = "Your review was posted!"
+      redirect_to location_path(@review.location_id)
     else
+      flash[:danger] = @review.errors.full_messages.to_sentence
       render 'new'
     end
   end
