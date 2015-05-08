@@ -1,28 +1,25 @@
 class LocationsController < ApplicationController
-    def index
+  def index
     if params[:search].present?
       if params[:search_type] == "Name"
         @target = Location.where("LOWER(name) LIKE ?","%#{params[:search].downcase}%").first || nil
         if @target
-          @locations = Location.near(@target.address, 10, :order => "distance")
+          @locations = Location.near(@target.address, 10, :order => "distance").limit(10)
         else
           flash[:danger] = "No matches found!"
           @locations = nil
           @target = nil
         end
-        @hash = build_gmap_markers(@target)
       elsif params[:search_type] == "Location"
         if Location.near(params[:search], 10)
-          @locations = Location.near(params[:search], 10, :order => "distance")
+          @locations = Location.near(params[:search], 10, :order => "distance").limit(10)
         else
           flash[:danger] = "No matches found!"
           @locations = Location.all
         end
-        @hash = build_gmap_markers(@locations)
       end
     else
-      @locations = Location.all
-      @hash = build_gmap_markers(@locations)
+      @locations = Location.all.limit(10)
     end
   end
 
@@ -51,16 +48,5 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:name, :address, :latitude, :longitude, :yelp_id)
   end
 
-  def build_gmap_markers(locations)
-    Gmaps4rails.build_markers(locations) do |location, marker|
-        marker.lat location.latitude
-        marker.lng location.longitude
-        marker.infowindow location.name
-        marker.picture({
-           "url" => "http://icons.iconarchive.com/icons/icons8/windows-8/16/Food-Mushroom-icon.png",
-           "width" =>  32,
-           "height" => 32})
-    end
-  end
 
 end
