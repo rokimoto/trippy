@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   match 'auth/failure', to: redirect('login'), via: [:get, :post]
   # match 'signout', to: 'sessions#destroy_facebook', as: 'signout', via: [:get, :post]
 
+  get 'about' => 'sessions#about'
 
   get "users/new" => "users#new"
   post "users" => "users#create"
