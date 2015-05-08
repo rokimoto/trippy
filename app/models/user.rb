@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :reviews
 
+  mount_uploader :profile_picture, PhotoUploader
+
   def admin?
     self.role == 'admin'
   end
