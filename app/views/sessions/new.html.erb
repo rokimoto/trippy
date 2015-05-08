@@ -1,12 +1,12 @@
 <div class="row">
 
 <!-- Login -->
-
-           <div class="text-center col-lg-4 col-lg-offset-4">
+   <div class="container">
+           <div class="logform text-center col-lg-4 col-lg-offset-4">
              <h1>Login with Email</h1>
              <%= form_tag('login', method: 'post') do %>
-               <br> <%= email_field_tag :email, placeholder:'Email', class:'form-control' %>
-               <br> <%= password_field_tag :password, placeholder:'Password', class:'form-control' %>
+               <br> <%= email_field_tag :email, "Email", class: 'form-control'%>
+               <br> <%= password_field_tag :password, 'Password', class: 'form-control'%>
                <br> <%= submit_tag "Login", class: "orange btn" %>
              <% end %>
 
@@ -20,6 +20,5 @@
                </div>
              <% end %>
           </div>
-
     </div>
-  </div>
+</div>
