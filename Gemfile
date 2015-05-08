@@ -31,11 +31,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
 
-
 gem 'geocoder'
 gem 'yelp'
 gem 'gmaps4rails'
-
 
 
 gem 'carrierwave', '0.10.0'
