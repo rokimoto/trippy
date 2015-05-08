@@ -1,12 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.user.new{
+.users.new{
    .row{
       background: url('Trippypic4.jpg')no-repeat center center fixed;
       background-size: cover;
       font-family: 'Josefin sans', sans-serif;
       color: white;
+      padding: 15px;
       .logform{
          color: #ff6f00;
          background: rgba(255,255,255,0.3);
@@ -15,22 +16,20 @@
 
 }
 
-.proinfo{
-   height: 600px;
-   border: 2px solid black;
-   border-top-right-radius: 20px;
-   border-bottom-right-radius: 20px;
+.users.show{
+   font-family: 'Josefin sans', sans-serif;
+   .pimage{
+      height: 200px;
+      .proimage{
+         height: 100%;
+         border-radius: 30px;
+      }
+   }
 
-   .name{
-      background: green;
-      height: 50px;
+   .editor{
+      color:white;
    }
-   .proimage{
-      border-radius: 50%;
-      height: 250px;
+   .bio{
+      color: black;
    }
-}
-.pickles{
-   background: blue;
-   height: 600px;
 }
