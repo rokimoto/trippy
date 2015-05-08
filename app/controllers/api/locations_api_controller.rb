@@ -6,6 +6,16 @@ module Api
       locations = Location.all
       render json: locations
     end
+
+    def search_name
+      location = Location.where("LOWER(name) LIKE ?","%#{params[:search].downcase}%").first || nil
+      render json: location
+    end
+
+    def search_location
+      locations = Location.near(params[:search], 10, :order => "distance")
+      render json: locations
+    end
   
   end
 end
