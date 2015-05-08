@@ -43,6 +43,13 @@ class LocationsController < ApplicationController
     @client = Yelp.client.business(@location.yelp_id)
   end
 
+  def destroy
+    flash[:danger] = "Your location has been deleted!"
+    @location = Location.find(params[:id])
+    @location.destroy
+    redirect_to locations_path
+  end
+
   private
   def location_params
     params.require(:location).permit(:name, :address, :latitude, :longitude, :yelp_id)
