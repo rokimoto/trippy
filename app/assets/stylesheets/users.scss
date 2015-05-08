@@ -5,24 +5,9 @@
    background: url('Trippypic4.jpg')no-repeat center center fixed;
    background-size: cover;
    font-family: 'Josefin sans', sans-serif;
-
-   .form{
-      margin-top: 70px;
-      border-radius: 10px;
+   color: white;
+   .logform{
+      color: #ff6f00;
       background: rgba(255,255,255,0.3);
-      padding: 10px;
-      margin-bottom: 50px;
-      color: white;
-      .form-control{
-         font-size: 1.2em;
-         border: 2px solid #00bcd4;
-         color: black;
-         background: #white;
       }
-      .subbtn{
-         background: #00bcd4;
-         color: white;
-         font-size: 1.2em;
-      }
-   }
 }
