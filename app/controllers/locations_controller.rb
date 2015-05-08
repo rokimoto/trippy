@@ -43,11 +43,12 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    @client = Yelp.client.business(@location.yelp_id)
   end
 
   private
   def location_params
-    params.require(:location).permit(:name, :address, :latitude, :longitude)
+    params.require(:location).permit(:name, :address, :latitude, :longitude, :yelp_id)
   end
 
   def build_gmap_markers(locations)

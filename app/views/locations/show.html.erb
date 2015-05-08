@@ -2,18 +2,16 @@
 <%= render 'layouts/flash' %>
 <!-- end of flash messages -->
 
+
 <h1><%= @location.name %></h1>
 
 <p><strong>Address</strong>
 <%= @location.address %>
 </p>
-<p><strong>Longitude</strong>
-<%= @location.longitude %>
+<p><strong>Phone</strong>
+<%= @client.display_phone %>
 </p>
-<p><strong>Latitude</strong>
-<%= @location.latitude %>
 
-</p>
 
 <h2>Reviews</h2>
 <% @location.reviews.each do |review| %>
