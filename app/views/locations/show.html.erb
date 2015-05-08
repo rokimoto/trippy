@@ -1,3 +1,7 @@
+<!-- Flash messages -->
+<%= render 'layouts/flash' %>
+<!-- end of flash messages -->
+
 <h1><%= @location.name %></h1>
 
 <p><strong>Address</strong>
@@ -14,7 +18,7 @@
 <h2>Reviews</h2>
 <% @location.reviews.each do |review| %>
   <p>Name: <%= User.find(review.user_id).username || User.find(review.user_id).name %></p>
-  <p>Rating: <%= review.rating %></p>
+  <p>Rating: <% review.rating.to_i.times do %><span class="glyphicon glyphicon-star"><% end %></p>
   <p>Content: <%= review.content %></p>
   <p><%= image_tag review.photo.url if review.photo? %></p>
 <% end %>

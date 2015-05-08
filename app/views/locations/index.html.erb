@@ -24,6 +24,10 @@
 </div>
 </section>
 
+<!-- Flash messages -->
+<%= render 'layouts/flash' %>
+<!-- end of flash messages -->
+
 <div class="left">
 
    <div class="circle_map col-lg-5 col-lg-offset-1"id="map"></div>
@@ -34,14 +38,16 @@
 </div>
 
 <div class="location_list col-lg-4 col-lg-offset-1">
+  <% if @locations %>
    <h2>Nearby locations</h2>
-   <% @locations.each do |location| %>
-   <p>
-     Name: <%= link_to location.name, location_path(location) %>
-     Address: <%= location.address %>
-     Latitude: <%= location.latitude %>
-     Longitude: <%= location.longitude %>
-     </p>
+     <% @locations.each do |location| %>
+     <p>
+       Name: <%= link_to location.name, location_path(location) %>
+       Address: <%= location.address %>
+       Latitude: <%= location.latitude %>
+       Longitude: <%= location.longitude %>
+       </p>
+     <% end %>
    <% end %>
 
    <% if current_user.admin? %>
@@ -52,10 +58,12 @@
 </section>
 
 <script>
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
+$(document).ready(function() {
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
 });
 </script>
