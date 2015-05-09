@@ -7,60 +7,63 @@
 
 <div class="row">
    <div class="col-lg-12"
+
+      <!-- Flash messages -->
+      <%= render 'layouts/flash' %>
+      <!-- end of flash messages -->
+
       <div class="row">
          <!-- NEARBY LOCATIONS code block -->
          <div class="col-lg-3">
             <div class="location_list">
-               <% if @locations %>
-                 <h2>Nearby locations</h2>
-                   <% @locations.each do |location| %>
-                   <p>
-                     <strong><%= link_to location.name, location_path(location) %></strong><% if location.reviews.any? %>: 
-                        <% location.average_rating.to_i.times do %>
-                          <span class="glyphicon glyphicon-star">
-                        <% end %>
+               <div class="container">
+                  <% if @locations %>
+                    <h2>Nearby locations</h2>
+                      <% @locations.each do |location| %>
+                      <p>
+                        <strong><%= link_to location.name, location_path(location) %></strong><% if location.reviews.any? %>:
+                           <% location.average_rating.to_i.times do %>
+                             <span class="glyphicon glyphicon-star">
+                           <% end %>
+                         <% end %>
+                      </p>
                       <% end %>
-                   </p>
-                   <% end %>
-                 <% end %>
+                    <% end %>
 
-                 <% if current_user.admin? %>
-                   <%= link_to "Add location", new_location_path %>
-                  <% end %>
+                    <% if current_user.admin? %>
+                      <%= link_to "Add location", new_location_path %>
+                     <% end %>
+               </div>
             </div>
          </div>
 
+         <div class="row">
+            <div class="col-lg-8">
+               <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
 
-         <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
+                  <div class="search_bar col-lg-10">
+                      <p><span class="subtitle">Search For Anything  </span>
+                         <%= text_field_tag :search, params[:search], class: "inputting" %>
+                         <span>Search by:</span>
+                         <%= label_tag(:name, "Name") %>
+                         <%= radio_button_tag(:search_type, "Name", true) %>
+                         <%= label_tag(:location, "Location") %>
+                         <%= radio_button_tag(:search_type, "Location") %>
+                         <%= submit_tag "Go!", :name => nil, class: 'search_btn' %>
+                      </p>
+                  </div>
+               <% end %>
 
-            <div class="search_bar">
-                <p><span class="subtitle">Search For Anything  </span>
-                   <%= text_field_tag :search, params[:search], class: "inputting" %>
-                   <span>Search by:</span>
-                   <%= label_tag(:name, "Name") %>
-                   <%= radio_button_tag(:search_type, "Name", true) %>
-                   <%= label_tag(:location, "Location") %>
-                   <%= radio_button_tag(:search_type, "Location") %>
-                   <%= submit_tag "Go!", :name => nil, class: 'search_btn' %>
-                </p>
+               <div class="circle_map col-lg-8"id="map"></div>
+
             </div>
-
-         <% end %>
+         </div>
       </div>
 </div>
-</section>
-
-<!-- Flash messages -->
-<%= render 'layouts/flash' %>
-<!-- end of flash messages -->
-
-<div class="left">
-
-   <div class="circle_map col-lg-5 col-lg-offset-1"id="map"></div>
 
    <% if @target %>
    <h1>You searched: <%= @target.name %></h1>
    <% end %>
-</div>
+
 
 </div>
