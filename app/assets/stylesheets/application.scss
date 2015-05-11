@@ -18,13 +18,14 @@
 .navbar{
    background: #ff6f00;
    border: none;
-   .tops{
-      margin-left: 10px;
-      margin-top: 15px;
-      color: #00bcd4;
-      border: none;
-      background: white;
-   }
+}
+
+.navbar .tops{
+   margin-left: 10px;
+   margin-top: 15px;
+   color: #00bcd4;
+   border: none;
+   background: white;
 }
 
 .header-btn{
@@ -33,24 +34,27 @@
    font-family: 'Josefin Sans', sans-serif;
    font-size: 2em;
 }
+
 .logo{
    width: 120px;
 }
+
 .nvbtn{
    margin-left: 10px;
    margin-top: 15px;
    color: #ff6f00;
    background: white;
    font-size: 1.1em;
-   .dropmen{
-      li{
-         font-family: 'Josefin Sans', sans-serif;
-      }
-      li:hover{
-         background: #80deea;
-      }
-   }
 }
+
+.dropmen li{
+   font-family: 'Josefin Sans', sans-serif;
+}
+
+.dropmen li:hover{
+   background: #80deea;
+}
+
 #navtext{
    color: white;
    font-family: 'Josefin Sans', sans-serif;
@@ -58,6 +62,15 @@
    margin-top: 22px;
    margin-right: 10px;
 }
+
 .page{
    margin-top: 65px;
+}
+
+.splashFooter {
+   background-color:#ff6f00;
+   padding: 33px;
+   color: white;
+   text-align: center;
+   font-size: 20px;
 }
