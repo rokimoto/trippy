@@ -14,34 +14,33 @@
 
       <div class="row">
          <!-- NEARBY LOCATIONS code block -->
-         <div class="col-lg-3">
-            <div class="location_list">
-               <div class="container">
+         <div class="col-lg-3 location_panel">
+            <h2>Nearby locations</h2>
                   <% if @locations %>
-                    <h2>Nearby locations</h2>
-                      <% @locations.each do |location| %>
-                      <p>
+                      <% @locations.each do |location|%>
+                      <li class="list-group-item">
                         <strong><%= link_to location.name, location_path(location) %></strong><% if location.reviews.any? %>:
                            <% location.average_rating.to_i.times do %>
                              <span class="glyphicon glyphicon-star">
                            <% end %>
                          <% end %>
-                      </p>
+                      </li>
                       <% end %>
+                   </ul>
                     <% end %>
+                      <%= link_to new_location_path do %>
+                        <button type="button" class="btn btn-info col-lg-offset-1">Add Location</button>
+                      <% end %>
 
-                    <% if current_user.admin? %>
-                      <%= link_to "Add location", new_location_path %>
-                     <% end %>
-               </div>
-            </div>
          </div>
+      </div>
 
-         <div class="row">
+</div>
+         <!-- <div class="row">
             <div class="col-lg-8">
                <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
 
-                  <div class="search_bar col-lg-10">
+                  <div class="search_bar">
                       <p><span class="subtitle">Search For Anything  </span>
                          <%= text_field_tag :search, params[:search], class: "inputting" %>
                          <span>Search by:</span>
@@ -59,11 +58,4 @@
             </div>
          </div>
       </div>
-</div>
-
-   <% if @target %>
-   <h1>You searched: <%= @target.name %></h1>
-   <% end %>
-
-
 </div>
