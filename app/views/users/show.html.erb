@@ -1,22 +1,27 @@
 <!-- Left-Side Profile Panel -->
 <div class="row">
-      <div class="col-lg-3">
+      <div class="col-lg-3 biopanel">
+         <ul class="list-group">
+            <div class="list-group-item row text-center name">
+               <h2><%= @user.name %></h2>
+            </div>
+            <div class="list-group-item row text-center pimage">
+               <%= image_tag @user.profile_picture.url, class: 'proimage' if @user.profile_picture? %>
+            </div>
+            <div class="list-group-item row text-center bio">
+               <% if current_user.id == @user.id %>
+                  <%= @user.bio %>
+               <% end %>
+            </div>
+            <div class="list-group-item row text-center username">
+                  <h4><%= @user.username %></h4>
+            </div>
+         </ul>
 
-         <div class="row text-center">
-            <h2><%= @user.name %></h2>
-         </div>
-         <div class="row pimage text-center">
-            <%= image_tag @user.profile_picture.url, class: 'proimage' if @user.profile_picture? %>
-         </div>
-         <br />
          <div class="row text-center">
             <% if current_user.id == @user.id %>
                <%= link_to "Edit Profile", edit_user_path, class: 'btn btn-info editor' %>
             <% end %>
-         </div>
-
-         <div class="row text-center bio">
-            <%= @user.bio %>
          </div>
 
       </div>

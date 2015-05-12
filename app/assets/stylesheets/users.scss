@@ -8,7 +8,7 @@
       background-size: cover;
       font-family: 'Josefin sans', sans-serif;
       color: white;
-      padding: 15px;
+      padding: 25px;
       .logform{
          color: #ff6f00;
          background: rgba(255,255,255,0.3);
@@ -19,18 +19,21 @@
 
 .users.show{
    font-family: 'Josefin sans', sans-serif;
-   .pimage{
-      height: 200px;
-      .proimage{
-         height: 100%;
-         border-radius: 30px;
-      }
-   }
-
-   .editor{
-      color:white;
-   }
-   .bio{
+   .biopanel{
+      background: green;
+      height: 635px;
+      display: fixed;
       color: black;
+      .pimage{
+         height: 200px;
+         .proimage{
+            height: 100%;
+            border-radius: 30px;
+         }
+      }
+
+      .editor{
+         color:white;
+      }
    }
 }
