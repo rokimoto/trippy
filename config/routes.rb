@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   namespace :api do
     get 'locations_api/search_name' => 'locations_api#search_name'
     get 'locations_api/search_location' => 'locations_api#search_location'
+    get 'locations_api/reviews/:id' => 'locations_api#reviews', as: :reviews
     resources :locations_api
 
   end

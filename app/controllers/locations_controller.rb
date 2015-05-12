@@ -1,5 +1,9 @@
 class LocationsController < ApplicationController
   def index
+    url = "https://maps.googleapis.com/maps/api/js?key="
+    key = ENV['GOOGLE_MAPS']
+    @endpoint = url + key
+
     if params[:search].present?
       if params[:search_type] == "Name"
         @target = Location.where("LOWER(name) LIKE ?","%#{params[:search].downcase}%").first || nil
