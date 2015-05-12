@@ -1,5 +1,60 @@
 
-// $(document).ready(function() {
+$(document).ready(function() {
+
+  function initialize() {
+
+    var mapOptions = {
+      zoom: 8
+    };
+
+    //creates the map
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    var bounds = new google.maps.LatLngBounds();
+
+    $.get('http://localhost:3000/api/locations_api', function(data) {
+ 
+      var marker_array = [];
+
+      for (var i = 0; i < data.length; i++) {
+        var mark = new google.maps.Marker({
+          position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
+          title: data[i].name,
+          animation: google.maps.Animation.DROP
+
+        }); // close new marker
+
+        marker_array.push(mark);
+        bounds.extend(mark.position);
+      } // end first for loop
+
+      for (var x = 0; x < marker_array.length; x++) {
+        var item = marker_array[x];
+
+        var infowindow = new google.maps.InfoWindow();
+
+        google.maps.event.addListener(item, "click", function (e) {
+          console.log(item)
+          var div = document.createElement('div');
+          div.innerHTML = item.title;
+          infowindow.setContent(div);
+          div.onclick = function(){$('#showModal').modal('show')};
+          infowindow.open(map, this);  // change the map variable appropriately
+
+
+        }); // close add event
+
+        item.setMap(map);
+      } // close for loop
+
+
+    }); // close $get
+    map.fitBounds(bounds);
+  } // close initialize
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+}); // close document ready
+
 
 //   // checks for parameters in URL
 //   function getQueryVariable(variable){
