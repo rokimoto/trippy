@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.user_name = User.find(params[:user_id]).name;
     if @review.save
       flash[:success] = "Your review was posted!"
       redirect_to location_path(@review.location_id)
@@ -29,7 +30,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :photo, :content, :user_id, :location_id)
+    params.require(:review).permit(:rating, :photo, :content, :user_id, :user_name, :location_id)
   end
 
 end

@@ -59,4 +59,17 @@
    .gm-style-iw {
       min-width: 100px;
    }
+
+   .iw-title {
+      font-family: 'Josefin sans', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 10px;
+      background-color: #48b5e9;
+      color: white;
+      margin: 1px;
+      border-radius: 2px 2px 0 0; /* In accordance with the rounding of the default infowindow corners. */
+   }
+
+
 }

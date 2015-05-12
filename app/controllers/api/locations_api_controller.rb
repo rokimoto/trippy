@@ -8,7 +8,7 @@ module Api
     end
 
     def search_name
-      location = Location.where("LOWER(name) LIKE ?","%#{params[:search].downcase}%").first || Location.new(latitude: 0, longitude: 0)
+      location = Location.where("LOWER(name) LIKE ?","%#{params[:search].downcase}%") || Location.new(latitude: 0, longitude: 0)
       render json: location
     end
 
@@ -16,6 +16,10 @@ module Api
       locations = Location.near(params[:search], 10, :order => "distance")
       render json: locations
     end
-  
+
+    def reviews
+      reviews = Location.find(params[:id]).reviews
+      render json: reviews
+    end
   end
 end
