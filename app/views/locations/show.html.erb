@@ -8,9 +8,16 @@
 <p><strong>Address</strong>
   <%= @location.address %>
 </p>
-<p><strong>Phone</strong>
-  <%= @client.display_phone %>
-</p>
+
+<% begin %>
+  <% @client.display_phone %>
+<% rescue %>
+<% else %>
+  <p><strong>Phone</strong>
+    <%= @client.display_phone %>
+  </p>
+<% end %>
+
 
 <% if current_user.admin? %>
 <%= link_to "Delete", @location, method: :delete, data: {confirm: "Are you sure you want to delete this location?"} %>
