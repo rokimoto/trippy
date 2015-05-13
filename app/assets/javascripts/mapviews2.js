@@ -17,8 +17,8 @@ $(document).ready(function() {
         }
         eachReviewContent += new String("<div>Content: " + item.content + "</div>");
         reviewContent += eachReviewContent;
-        
-        
+
+
       }); // end each
     reviewContent += "<a href='http://localhost:3000/locations/" + id + "'>Add a review!</a>"
     $('#myModalBody').html(reviewContent);
@@ -113,7 +113,7 @@ $(document).ready(function() {
         var id = this.id;
         var name = this.title;
         var div = document.createElement('div');
-        div.innerHTML = "<div class='iw-title'>" + this.title + "</div><div class='iw-content'>Click Again to See the Location</div>";
+        div.innerHTML = "<div class='iw-title'>" + this.title + "</div><div class='iw-content'><strong>Click Again</strong> to See the Location</div>";
         infowindow.setContent(div);
         div.onclick = function(){
           fillModal(name, id);
