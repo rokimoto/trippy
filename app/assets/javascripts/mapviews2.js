@@ -15,7 +15,7 @@ $(document).ready(function() {
         }
       }
       reviewContent += "</div>";
-    });
+    }); // close yelp get
     $.get('/api/locations_api/reviews/' + id, function(data) {
       $.each(data, function(index, item) {
         var ratingNum = parseInt(item.rating)
@@ -29,10 +29,11 @@ $(document).ready(function() {
         }
         eachReviewContent += new String("<div>Content: " + item.content + "</div>");
         reviewContent += eachReviewContent;
-
-      });
-    $('#myModalBody').html(reviewContent);
-    });
+      }); // close .each
+      $('#myModalBody').html(reviewContent);
+    }); // close reviews get
+    
+  };
 
   // gets the parameters of the search string
   function getQueryVariable(variable){
