@@ -1,32 +1,65 @@
-<!-- Left-Side Profile Panel -->
+
+<!-- This file contains code related to the User Profile Page -->
+
+<!-- Begin Yielded Page Content -->
 <div class="row">
+
+   <!-- Left-Side Profile Panel -->
       <div class="col-lg-3 biopanel">
+
+         <!-- All User content displayed in this panel is in list-item format -->
          <ul class="list-group">
+
             <div class="list-group-item row text-center name">
                <h2><%= @user.name %></h2>
             </div>
+
             <div class="list-group-item row text-center pimage">
                <%= image_tag @user.profile_picture.url, class: 'proimage' if @user.profile_picture? %>
             </div>
-            <div class="list-group-item row text-center bio">
-               <% if current_user.id == @user.id %>
-                  <%= @user.bio %>
-               <% end %>
-            </div>
+
             <div class="list-group-item row text-center username">
                   <h4><%= @user.username %></h4>
             </div>
-         </ul>
 
+            <div class="list-group-item row text-center bio">
+                  <%= @user.bio if @user.bio? %>
+            </div>
+         </ul>
+         <!-- End of User content -->
+
+         <!-- Edit Profile Button -->
          <div class="row text-center">
             <% if current_user.id == @user.id %>
                <%= link_to "Edit Profile", edit_user_path, class: 'btn btn-info editor' %>
             <% end %>
          </div>
+         <!-- End of Profile Button -->
 
       </div>
+      <!-- End of Biopanel code block -->
 
+
+      <!-- The following code os a display of User Activity throughout the lifetime of the user -->
       <div class="col-lg-9">
-         <h2>hi</h2>
+
+         <!-- This div is/will be populated with the Reviews and Locations the User has liked -->
+         <div class="like_library">
+
+         </div>
+
+         <!-- This div is going to be a carousel, lol sorry Rob, of all the photos Users have submitted. If there are none, it should display "Upload a memory' in the middle of the page." -->
+         <div class="photo_library">
+
+         </div>
+
+         <!-- This div is a list of all the reviews a user has made. Again, if there are none, the page should display 'Share your opinion' in the div center-->
+         <div class="review_library">
+
+         </div>
+
       </div>
+      <!-- End of the User Activity Code Block -->
+
 </div>
+<!-- Yielded Content End -->
