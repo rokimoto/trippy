@@ -5,15 +5,15 @@
 <div class="row">
 
    <!-- This row contains the Image of the Phones on the left side of the page -->
-  <div class="row col-lg-5">
-    <%= image_tag "phones.png", class: 'col-lg-offset-2'%>
+  <div class="row col-xs-6 col-sm-6 col-md-6 col-lg-5 col-sm-offset-3 col-md-offset-2 col-lg-offset-0">
+    <%= image_tag "phones.png", class: 'col-md-offset-3 col-lg-offset-2'%>
   </div>
 
   <!-- The following code block contains the text-fields and buttons on the right side of the page -->
   <div class="row">
 
      <!-- This is the Form for creating a new User -->
-    <div class="col-md-4 col-lg-offset-1">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xs-offset-3 col-sm-offset-3 col-md-offset-2 col-lg-offset-1">
 
       <!-- Header -->
       <h1>Sign Up</h1>
@@ -25,7 +25,7 @@
           <br> <%= f.email_field :email, placeholder:'Email', class:'form-control' %>
           <br> <%= f.password_field :password, placeholder:'Password', class:'form-control' %>
           <br> <%= f.password_field :password_confirmation, placeholder:'Password Confirmation', class:'form-control' %><br>
-          <p><%= f.submit "Create Account", class: "orange btn" %></p>
+          <p><%= f.submit "Create Account", class: "orange btn  col-xs-offset-2 col-sm-offset-5 col-md-offset-3 col-lg-offset-0" %></p>
         <% end %>
         <!-- End ERB form block -->
     </div>
@@ -35,10 +35,14 @@
     <!-- Facebook Login Code Block -->
     <div class="fbBox">
 
-      <div class="col-md-6">
-         <!-- Header -->
-        <h2 class='orangetxt'>Sign up for Trippy</h2>
-        <!-- Subtitle Text -->
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-1 col-lg-offset-0">
+
+        <!-- Header -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <h4>Sign up through Facebook</h4>
         <h5 class='grey'>Connect and see the world</h5>
 
           <!-- Code block for the OAuth button for Facebook Account Creation -->
