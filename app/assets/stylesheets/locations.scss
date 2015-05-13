@@ -75,6 +75,19 @@
       -webkit-text-stroke-color: grey;
       margin-left: 8px;
    }
+}
 
+.locations.show{
+   .revpage{
+      margin-top: 80px;
+      .info{
+         border: 2px solid black;
+      }
+      .revs{
+         border: 2px solid red;
+      }
+      .pics{
 
+      }
+   }
 }
