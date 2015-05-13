@@ -20,8 +20,8 @@
             <h2>Nearby locations</h2>
                   <% if @locations %>
                       <% @locations.each do |location|%>
-                      <li class="list-group-item">
-                        <strong><%= link_to location.name, location_path(location) %></strong><% if location.reviews.any? %>:
+                      <li class="list-group-item" id="<%= location.id %>">
+                        <strong><%= link_to location.name, "#" %></strong><% if location.reviews.any? %>
                            <% location.average_rating.to_i.times do %>
                              <span class="glyphicon glyphicon-star">
                            <% end %>
