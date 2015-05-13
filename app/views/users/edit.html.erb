@@ -1,13 +1,28 @@
-<!-- Flash messages -->
-<%= render 'layouts/flash' %>
-<!-- end of flash messages -->
+<!-- The file contains code for the Edit User Page -->
 
-<h1>Edit Profile</h1>
-<%= form_for @user do |f| %>
-  <p><%= f.text_field :name%> </p>
-  <p><%= f.file_field :profile_picture %></p>
-  <p><%= f.email_field :email %></p>
-  <p><%= f.text_field :bio, placeholder: "Biography" %></p>
-  <p><%= f.password_field :password %></p>
-  <p><%= f.submit "Update Account" %></p>
-<% end %>
+<!-- Begin Yielded Content -->
+
+<div class="row">
+
+   <!-- Flash messages -->
+   <%= render 'layouts/flash' %>
+   <!-- end of flash messages -->
+   <div class="container">
+
+
+
+         <h1>Edit Profile</h1>
+
+         <%= form_for @user do |f| %>
+           <p><%= f.text_field :name%> </p>
+           <p><%= f.file_field :profile_picture %></p>
+           <p><%= f.email_field :email %></p>
+           <p><%= f.text_field :bio, placeholder: "Biography" %></p>
+           <p><%= f.password_field :password %></p>
+           <p><%= f.submit "Update Account" %></p>
+         <% end %>
+
+
+
+   </div>
+</div>

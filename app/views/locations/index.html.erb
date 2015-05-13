@@ -37,10 +37,10 @@
          </div>
 
          <div class="col-lg-8">
-            <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
 
-               <div class="search_bar">
-                   <p><span class="subtitle">Search For Anything  </span>
+            <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
+               <div class="search_bar col-lg-offset-2">
+                   <p><span class="subtitle">Find Anything:  </span>
                       <%= text_field_tag :search, params[:search], class: "inputting" %>
                       <span>Search by:</span>
                       <%= label_tag(:name, "Name") %>
@@ -53,7 +53,7 @@
             <% end %>
 
 
-            <div class="circle_map"id="map"></div>
+            <div class="circle_map col-lg-offset-1"id="map"></div>
 
          </div>
       </div>
