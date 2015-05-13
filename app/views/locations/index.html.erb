@@ -16,7 +16,7 @@
 
       <div class="row">
          <!-- NEARBY LOCATIONS code block -->
-         <div class="col-lg-3 location_panel">
+         <div class="location_panel col-lg-3">
             <h2>Nearby locations</h2>
                   <% if @locations %>
                       <% @locations.each do |location|%>
@@ -29,18 +29,19 @@
                       </li>
                       <% end %>
                    </ul>
+                   <br>
                     <% end %>
                       <%= link_to new_location_path do %>
-                        <button type="button" class="btn btn-info col-lg-offset-1">Add Location</button>
+                        <button type="button" class="btn btn-info col-lg-offset-4">Add Location</button>
                       <% end %>
 
          </div>
 
          <div class="col-lg-8">
-            <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
 
-               <div class="search_bar">
-                   <p><span class="subtitle">Search For Anything  </span>
+            <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
+               <div class="search_bar col-lg-offset-2">
+                   <p><span class="subtitle">Find Anything:  </span>
                       <%= text_field_tag :search, params[:search], class: "inputting" %>
                       <span>Search by:</span>
                       <%= label_tag(:name, "Name") %>
@@ -53,7 +54,7 @@
             <% end %>
 
 
-            <div class="circle_map"id="map"></div>
+            <div class="circle_map col-lg-offset-1"id="map"></div>
 
          </div>
       </div>
@@ -67,10 +68,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4><button class="btn">Add to favorites!</button>
       </div>
       <div class="modal-body" id="myModalBody">
-        ...
+        No reviews yet
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
