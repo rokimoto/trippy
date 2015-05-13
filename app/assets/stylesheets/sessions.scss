@@ -30,8 +30,23 @@ body {
 .fbBox {
   text-align: center;
 }
+.sessions.about{
+   font-family: 'Josefin sans', sans-serif;
 
-
+   .maintext{
+      margin-bottom: 40px;
+         ul{
+            list-style-type: none;
+            li{
+               p{
+                  font-size: 1.2em;
+               }
+               padding-bottom: 10px;
+               border-bottom: 1px solid black;
+            }
+      }
+   }
+}
 // Commenting out the code below due to merge conflict. If it's needed please just uncomment it!
 // .box{
 //    font-family: 'Josefin Sans', sans-serif;
