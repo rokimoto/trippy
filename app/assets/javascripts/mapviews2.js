@@ -17,9 +17,12 @@ $(document).ready(function() {
         }
         eachReviewContent += new String("<div>Content: " + item.content + "</div>");
         reviewContent += eachReviewContent;
-        $('#myModalBody').html(reviewContent);
-      });
-    });
+        
+        
+      }); // end each
+    reviewContent += "<a href='http://localhost:3000/locations/" + id + "'>Add a review!</a>"
+    $('#myModalBody').html(reviewContent);
+    }); // end get
   }
 
   // gets the parameters of the search string
@@ -126,7 +129,7 @@ $(document).ready(function() {
 
   } // close makeMap
 
-
+  // makes modal pop up for nearby locations
   $('.location_panel li').on("click", function() {
     var name = $(this).text();
     var id = $(this).attr('id');
