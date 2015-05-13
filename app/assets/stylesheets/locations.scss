@@ -68,5 +68,12 @@
       border-radius: 2px 2px 0 0; /* In accordance with the rounding of the default infowindow corners. */
    }
 
+   .glyphicon-star {
+      color: yellow;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: grey;
+      margin-left: 8px;
+   }
+
 
 }
