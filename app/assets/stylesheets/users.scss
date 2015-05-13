@@ -15,8 +15,14 @@
          }
    }
 
-}
 
+
+}
+@media(max-width: 768px){
+   .phoneimage{
+      width: 100%;
+   }
+}
 .users.show{
    font-family: 'Josefin sans', sans-serif;
    .biopanel{
