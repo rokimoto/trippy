@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'locations_api/search_name' => 'locations_api#search_name'
     get 'locations_api/search_location' => 'locations_api#search_location'
     get 'locations_api/reviews/:id' => 'locations_api#reviews', as: :reviews
+    get 'locations_api/yelp/:id' => 'locations_api#yelp', as: :yelp
     resources :locations_api
 
   end
