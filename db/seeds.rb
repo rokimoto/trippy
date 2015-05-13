@@ -17,6 +17,14 @@ locations = Location.create([
   {name:'The Wave at Coyote Buttes', address:'381 N 100 E Kanab, UT 84741', yelp_id:'the-wave-at-coyote-buttes-kanab'},
   {name:'Sequoia National Park', address:'Highway 198 Sequoia National Park, CA 93262', yelp_id:'general-sherman-tree-sequoia-national-park'},
   {name:"Thor's Well", address:'2311-2399 Oregon Coast Hwy Siuslaw National Forest Florence, OR 97439', yelp_id:'thors-well-florence'},
+  {name:'Badlands National Park', address:'Rockyford Kyle, SD 57752', yelp_id:'badlands-national-park-kyle'},
+  {name:'Cadillac Ranch', address:'I-40 Amarillo, TX 79124 b/t I-40 & Hope Rd', yelp_id:'cadillac-ranch-amarillo'},
+  {name:'Wacko Soap Plant', address:'4633 Hollywood Blvd Los Angeles, CA 90027', yelp_id:'wacko-soap-plant-los-angeles'},
+  {name:'Venice Beach', address:'1500 Ocean Front Walk Venice, CA 90291', yelp_id:'venice-beach-venice'},
+  {name:'Los Angeles County Museum of Art', address:'5905 Wilshire Blvd Los Angeles, CA 90036', yelp_id:'los-angeles-county-museum-of-art-los-angeles-7'},
+  {name:'Griffith Observatory', address:'2800 E Observatory Rd Los Angeles, CA 90027', yelp_id:'griffith-observatory-los-angeles-2'},
+  {name:'Watts Tower', address:'1727 E 107th St Los Angeles, CA 90002', yelp_id:'watts-towers-arts-center-los-angeles'},
+  {name:'Huntington Botanical Gardens', address:'1151 Oxford Rd San Marino, CA 91108', yelp_id:'huntington-library-art-collections-and-botanical-gardens-san-marino'}
 
 
 
