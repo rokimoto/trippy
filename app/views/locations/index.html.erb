@@ -16,7 +16,7 @@
 
       <div class="row">
          <!-- NEARBY LOCATIONS code block -->
-         <div class="col-lg-3 location_panel">
+         <div class="location_panel col-lg-3">
             <h2>Nearby locations</h2>
                   <% if @locations %>
                       <% @locations.each do |location|%>
@@ -29,9 +29,10 @@
                       </li>
                       <% end %>
                    </ul>
+                   <br>
                     <% end %>
                       <%= link_to new_location_path do %>
-                        <button type="button" class="btn btn-info col-lg-offset-1">Add Location</button>
+                        <button type="button" class="btn btn-info col-lg-offset-4">Add Location</button>
                       <% end %>
 
          </div>
