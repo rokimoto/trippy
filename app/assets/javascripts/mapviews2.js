@@ -122,7 +122,7 @@ $(document).ready(function() {
   } // close makeMap
 
 
-  $('li').on("click", function() {
+  $('.location_panel li').on("click", function() {
     var name = $(this).text();
     var id = $(this).attr('id');
     fillModal(name, id);
