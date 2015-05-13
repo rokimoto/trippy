@@ -23,7 +23,7 @@
                       <li class="list-group-item" id="<%= location.id %>">
                         <strong><%= link_to location.name, "#" %></strong><% if location.reviews.any? %>
                            <% location.average_rating.to_i.times do %>
-                             <span class="glyphicon glyphicon-star">
+                             <span class="glyphicon glyphicon-star"></span>
                            <% end %>
                          <% end %>
                       </li>

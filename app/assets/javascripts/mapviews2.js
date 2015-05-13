@@ -6,7 +6,12 @@ $(document).ready(function() {
     var reviewContent = "";
     $.get('http://localhost:3000/api/locations_api/reviews/' + id, function(data) {
       $.each(data, function(index, item) {
-        var eachReviewContent = "<div>Name: " + item.user_name + "</div><div>Rating: " + item.rating + "</div>"
+        var ratingNum = parseInt(item.rating)
+        var eachReviewContent = "<div>Name: " + item.user_name + "</div><div>Rating: "
+        for(var i = 0; i < ratingNum; i++) {
+          eachReviewContent += "<span class='glyphicon glyphicon-star'></span>"
+        } 
+        eachReviewContent += "</div>";
         if(item.photo.url) {
           eachReviewContent += new String("<div><img src=" + item.photo.url + "></div>");
         }
