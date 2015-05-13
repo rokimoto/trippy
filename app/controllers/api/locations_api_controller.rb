@@ -21,5 +21,11 @@ module Api
       reviews = Location.find(params[:id]).reviews
       render json: reviews
     end
+
+    def yelp
+      yelp_data = Yelp.client.business(params[:id])
+      render json: yelp_data
+    end
+
   end
 end

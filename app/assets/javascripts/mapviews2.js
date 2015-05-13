@@ -1,10 +1,22 @@
 $(document).ready(function() {
 
   // creates the content within the modal
-  function fillModal(name, id) {
+  function fillModal(name, id, yelp_id) {
     $('#myModalLabel').text(name);
     var reviewContent = "";
-    $.get('http://localhost:3000/api/locations_api/reviews/' + id, function(data) {
+    // pulls data from yelp api
+    $.get('/api/locations_api/yelp/' + yelp_id, function(data) {
+      console.log(data);
+      reviewContent += new String("<div>Phone: " + data.display_phone + "</div><div>Categories: ")
+      for (var i = 0; i < data.categories.length; i++) {
+        reviewContent += data.categories[i][0]
+        if (i != data.categories.length -1 ) {
+          reviewContent += ", "
+        }
+      }
+      reviewContent += "</div>";
+    });
+    $.get('/api/locations_api/reviews/' + id, function(data) {
       $.each(data, function(index, item) {
         var ratingNum = parseInt(item.rating)
         var eachReviewContent = "<div>Name: " + item.user_name + "</div><div>Rating: "
@@ -18,12 +30,9 @@ $(document).ready(function() {
         eachReviewContent += new String("<div>Content: " + item.content + "</div>");
         reviewContent += eachReviewContent;
 
-
-      }); // end each
-    reviewContent += "<a href='http://localhost:3000/locations/" + id + "'>Add a review!</a>"
+      });
     $('#myModalBody').html(reviewContent);
-    }); // end get
-  }
+    });
 
   // gets the parameters of the search string
   function getQueryVariable(variable){
@@ -50,20 +59,20 @@ $(document).ready(function() {
     if(searchTerm) {
       // if user is searching by name
       if (searchType == 'Name') {
-        $.get('http://localhost:3000/api/locations_api/search_name?search=' + searchTerm, function(data) {
+        $.get('/api/locations_api/search_name?search=' + searchTerm, function(data) {
           makeMap(data);
         });
       }
       // else the user is searching by location
       else {
-        $.get('http://localhost:3000/api/locations_api/search_location?search=' + searchTerm, function(data) {
+        $.get('/api/locations_api/search_location?search=' + searchTerm, function(data) {
           makeMap(data);
          });
       }
     }
     // else no search term is present and all locations are rendered
     else {
-      $.get('http://localhost:3000/api/locations_api', function(data) {
+      $.get('/api/locations_api', function(data) {
         makeMap(data);
       });
     }
@@ -92,6 +101,7 @@ $(document).ready(function() {
         position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
         title: data[i].name,
         id: data[i].id,
+        yelp_id: data[i].yelp_id,
         icon: "http://icons.iconarchive.com/icons/icons8/windows-8/16/Food-Mushroom-icon.png",
         animation: google.maps.Animation.DROP
 
@@ -111,12 +121,13 @@ $(document).ready(function() {
 
       google.maps.event.addListener(item, "click", function (e) {
         var id = this.id;
+        var yelp_id = this.yelp_id;
         var name = this.title;
         var div = document.createElement('div');
         div.innerHTML = "<div class='iw-title'>" + this.title + "</div><div class='iw-content'><strong>Click Again</strong> to See the Location</div>";
         infowindow.setContent(div);
         div.onclick = function(){
-          fillModal(name, id);
+          fillModal(name, id, yelp_id);
           $('#showModal').modal('show')
         };
         infowindow.open(map, this);  // change the map variable appropriately
