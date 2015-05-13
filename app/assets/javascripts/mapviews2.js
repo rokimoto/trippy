@@ -22,7 +22,7 @@ $(document).ready(function() {
         var eachReviewContent = "<div>Name: " + item.user_name + "</div><div>Rating: "
         for(var i = 0; i < ratingNum; i++) {
           eachReviewContent += "<span class='glyphicon glyphicon-star'></span>"
-        } 
+        }
         eachReviewContent += "</div>";
         if(item.photo.url) {
           eachReviewContent += new String("<div><img src=" + item.photo.url + "></div>");
@@ -33,7 +33,6 @@ $(document).ready(function() {
       });
     $('#myModalBody').html(reviewContent);
     });
-  }
 
   // gets the parameters of the search string
   function getQueryVariable(variable){
@@ -75,7 +74,7 @@ $(document).ready(function() {
     else {
       $.get('/api/locations_api', function(data) {
         makeMap(data);
-      }); 
+      });
     }
 
   } // close initialize
@@ -117,7 +116,7 @@ $(document).ready(function() {
       var item = marker_array[x];
 
       var infowindow = new google.maps.InfoWindow({
-        
+
       });
 
       google.maps.event.addListener(item, "click", function (e) {
@@ -125,7 +124,7 @@ $(document).ready(function() {
         var yelp_id = this.yelp_id;
         var name = this.title;
         var div = document.createElement('div');
-        div.innerHTML = "<div class='iw-title'>" + this.title + "</div><div class='iw-content'>If you want content it goes here</div>";
+        div.innerHTML = "<div class='iw-title'>" + this.title + "</div><div class='iw-content'><strong>Click Again</strong> to See the Location</div>";
         infowindow.setContent(div);
         div.onclick = function(){
           fillModal(name, id, yelp_id);
@@ -138,10 +137,10 @@ $(document).ready(function() {
       item.setMap(map);
     } // close 2nd for loop
         map.fitBounds(bounds);
-        
+
   } // close makeMap
 
-
+  // makes modal pop up for nearby locations
   $('.location_panel li').on("click", function() {
     var name = $(this).text();
     var id = $(this).attr('id');
