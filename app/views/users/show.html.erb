@@ -57,7 +57,10 @@
 
          <!-- This div is going to be a carousel, lol sorry Rob, of all the photos Users have submitted. If there are none, it should display "Upload a memory' in the middle of the page." -->
          <div class="photo_library">
+            <% @user.reviews.each do |review| %>
 
+               <%= image_tag review.photo.url %>
+            <% end %>
          </div>
 
          <!-- This div is a list of all the reviews a user has made. Again, if there are none, the page should display 'Share your opinion' in the div center-->
