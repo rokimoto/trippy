@@ -6,7 +6,7 @@ class LikesController < ApplicationController
       flash[:success] = "Added favorite!"
       redirect_to user_path(current_user)
     else
-      flash[:danger] = "Error saving location!"
+      flash[:danger] = @like.errors.full_messages.to_sentence
       redirect_to locations_path
     end
   end
