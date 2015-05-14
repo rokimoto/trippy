@@ -19,8 +19,7 @@ Rails.application.routes.draw do
   root 'users#new'
 
   get 'users/:id' => 'users#show'
-   # This action should be created in the routes and controllers to create a splash page!
-   # ------------------------------------------------------------------------------------
+   
    resources :users do
       resources :reviews
       end

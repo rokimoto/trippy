@@ -1,7 +1,9 @@
-// Place all the styles related to the locations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Each Page under the Locations Controller is styled individually as best as possible.
+// Each different page will be marked by ".location.<action>"
+// The .action corresponds to the controller action that leads to the path
 .locations.index{
+   // Style code with search bar, radio buttons, and submit
    .search_bar{
       margin-top: 5px;
       padding-top: 10px;
@@ -34,23 +36,23 @@
          }
       }
    }
+
+   // Styles the map partial, even though the map is no longer circular
    .circle_map{
          height: 550px;
          border-radius: 5%;
    }
+
+   // Styles the Grey Panel that contains the list of locations(seeded + user generated)
    .location_panel{
       background: #cfcfcf;
       height: 635px;
       font-family: 'Josefin sans', sans-serif;
       margin-left: 10px;
+
+      // Individual list items/locations
       li{
          margin-bottom: 5px;
-         .card{
-            height: 150px;
-            .card_image{
-               height: 125px;
-            }
-         }
       }
    }
 
@@ -68,7 +70,7 @@
       margin: 1px;
       border-radius: 2px 2px 0 0; /* In accordance with the rounding of the default infowindow corners. */
    }
-
+   // Styles the star icon for rating display
    .glyphicon-star {
       color: yellow;
       -webkit-text-stroke-width: 1px;
@@ -77,15 +79,25 @@
    }
 }
 
+// The following pertains to the code and display of the Location Show page
+// On this page, users add new reviews
 .locations.show{
+
+   // All page content is contained inside the revpage div
    .revpage{
       margin-top: 80px;
+
+      // This div contains the basic info of the location + metrics
       .info{
          border: 2px solid black;
       }
+
+      // This div will be populated by any reviews attached to the location
       .revs{
          border: 2px solid red;
       }
+
+      // This div is populated by any images uploaded to the location through reviews
       .pics{
 
       }
