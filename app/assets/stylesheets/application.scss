@@ -15,11 +15,14 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+// Navbar obviously
 .navbar{
    background: #ff6f00;
    border: none;
 }
 
+// Login and Sign Up buttons on right side of page
 .navbar .tops{
    margin-left: 10px;
    margin-top: 15px;
@@ -28,17 +31,12 @@
    background: white;
 }
 
-.header-btn{
-   margin-left: 15px;
-   color: black;
-   font-family: 'Josefin Sans', sans-serif;
-   font-size: 2em;
-}
-
+// Logo Duh
 .logo{
    width: 120px;
 }
 
+// Any button contained in the navbar is automatically given this class for safety reasons
 .nvbtn{
    margin-left: 10px;
    margin-top: 15px;
@@ -47,14 +45,19 @@
    font-size: 1.1em;
 }
 
+// When logged in, the user only sees one button.
+// That button is class="dropmen" to stand for 'drop-down-menu"
+// This styles the individual list items in the menu
 .dropmen li{
    font-family: 'Josefin Sans', sans-serif;
 }
 
+// Changes color of list-item to show user which option they are about to select
 .dropmen li:hover{
    background: #80deea;
 }
 
+// Colors the text in the navbar white
 #navtext{
    color: white;
    font-family: 'Josefin Sans', sans-serif;
@@ -63,10 +66,12 @@
    margin-right: 10px;
 }
 
+// Moves the page content down + out from behind the navbar
 .page{
    margin-top: 65px;
 }
 
+// Footer Styling
 .splashFooter {
    background-color: black;
    padding: 20px;
