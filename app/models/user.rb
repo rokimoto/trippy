@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-
+ 
   def from_omniauth?
     provider && uid
   end

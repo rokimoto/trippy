@@ -3,38 +3,84 @@ $(document).ready(function() {
   // creates the content within the modal
   function fillModal(name, id, yelp_id) {
     $('#myModalLabel').text(name);
-    var reviewContent = "";
     $('#like_location_id').val(id);
+    $("#addReviewButton").attr("href", "/locations/" + id)
+
+    // modalContent is the granddaddy of the modal content
+    var modalContent = "";
+
+    /*** This will get filled by yelp content ***/
+    var yelpContent = "";
+
+    /*** This is overwritten if a review is present ***/
+    var eachReviewContent = "";
+
+    /*** This is the div that holds all the images ***/
+    var imageGallery = "<div class='imageGallery'>";
+
     // pulls data from yelp api
     $.get('/api/locations_api/yelp/' + yelp_id, function(data) {
       console.log(data);
-      reviewContent += new String("<div>Phone: " + data.display_phone + "</div><div>Categories: ")
+
+      /*** phone number ***/
+      yelpContent = "<div>Phone: ";
+      yelpContent += data.display_phone || "not available";
+      yelpContent +=  "</div>";
+
+      /*** categories ***/
+      yelpContent+= "<div>Categories: ";
       for (var i = 0; i < data.categories.length; i++) {
-        reviewContent += data.categories[i][0]
+        yelpContent += data.categories[i][0];
         if (i != data.categories.length -1 ) {
-          reviewContent += ", "
+          yelpContent += ", ";
         }
       }
-      reviewContent += "</div>";
+      yelpContent += "</div>"; 
+    
     }); // close yelp get
+
     $.get('/api/locations_api/reviews/' + id, function(data) {
       $.each(data, function(index, item) {
-        var ratingNum = parseInt(item.rating)
-        var eachReviewContent = "<div>Name: " + item.user_name + "</div><div>Rating: "
+        var ratingNum = parseInt(item.rating);
+      
+        /*** reviewer's name ***/
+        eachReviewContent += "<div>Name: " + item.user_name + "</div>";
+
+        /*** review rating as stars ***/
+        eachReviewContent += "<div>Rating: ";
         for(var i = 0; i < ratingNum; i++) {
-          eachReviewContent += "<span class='glyphicon glyphicon-star'></span>"
+          eachReviewContent += "<span class='glyphicon glyphicon-star'></span>";
         }
         eachReviewContent += "</div>";
+
+        /*** review content ***/
+        eachReviewContent += String("<div>Content: " + item.content + "</div>");
+
+
+        /*** pushes photo to image gallery ***/
         if(item.photo.url) {
-          eachReviewContent += new String("<div><img src=" + item.photo.url + "></div>");
+          imageGallery += String("<div><img class='img-rounded' src=" + item.photo.url + "></div>");
         }
-        eachReviewContent += new String("<div>Content: " + item.content + "</div>");
-        reviewContent += eachReviewContent;
+        
       }); // close .each
-      $('#myModalBody').html(reviewContent);
+
+      /*** closes image gallery div ***/
+      imageGallery += "</div>";
+
+      /*** states there is no reviews if there is no reviews ***/
+      if(eachReviewContent === "") {
+        eachReviewContent =+ "<div>No reviews yet!</div>";
+      }
+
+      // appends each content section and displays it in the modal
+      modalContent += yelpContent;
+      modalContent += imageGallery;
+      modalContent += eachReviewContent;
+      $('#myModalBody').html(modalContent);
+
     }); // close reviews get
     
-  };
+  }
 
   // gets the parameters of the search string
   function getQueryVariable(variable){
@@ -121,6 +167,7 @@ $(document).ready(function() {
 
       });
 
+      // 
       google.maps.event.addListener(item, "click", function (e) {
         var id = this.id;
         var yelp_id = this.yelp_id;
@@ -132,7 +179,7 @@ $(document).ready(function() {
           fillModal(name, id, yelp_id);
           $('#showModal').modal('show')
         };
-        infowindow.open(map, this);  // change the map variable appropriately
+        infowindow.open(map, this);  
 
       }); // close add event
 
