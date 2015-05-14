@@ -4,6 +4,7 @@ $(document).ready(function() {
   function fillModal(name, id, yelp_id) {
     $('#myModalLabel').text(name);
     var reviewContent = "";
+    $('#like_location_id').val(id);
     // pulls data from yelp api
     $.get('/api/locations_api/yelp/' + yelp_id, function(data) {
       console.log(data);

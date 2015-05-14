@@ -4,6 +4,8 @@ class LocationsController < ApplicationController
     key = ENV['GOOGLE_MAPS']
     @endpoint = url + key
 
+    @like = Like.new
+
     if params[:search].present?
       if params[:search_type] == "Name"
         @target = Location.where("LOWER(name) LIKE ?","%#{params[:search].downcase}%").first || nil
