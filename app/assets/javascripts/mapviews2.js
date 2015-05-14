@@ -104,7 +104,7 @@ $(document).ready(function() {
         title: data[i].name,
         id: data[i].id,
         yelp_id: data[i].yelp_id,
-        icon: "http://icons.iconarchive.com/icons/icons8/windows-8/16/Food-Mushroom-icon.png",
+        icon: "/assets/mush-icon-red.svg",
         animation: google.maps.Animation.DROP
 
       }); // close new marker
