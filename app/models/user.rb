@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
 
   has_secure_password(validations: false)
 
-  validates :username, :email, :name, :password, presence: true, unless: -> { from_omniauth? }
+  validates :username, :email, :name, :password, presence: true, unless: -> { from_omniauth? }, on: :create
 
-  validates :email, uniqueness: { case_sensitive: false }, 
+  validates :email, uniqueness: { case_sensitive: false },
                     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, unless: -> { from_omniauth? }
 
   has_many :likes, dependent: :destroy
@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
- 
+
   def from_omniauth?
     provider && uid
   end
