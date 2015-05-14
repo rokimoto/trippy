@@ -15,8 +15,31 @@
       <!-- end of flash messages -->
 
       <div class="row">
+
+         <div class="col-xs-11 col-sm-offset-0 col-sm-8 col-md-9">
+
+            <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
+               <div class="search_bar">
+                   <p><span class="subtitle">Find Anything:  </span>
+                      <%= text_field_tag :search, params[:search], class: "inputting" %>
+                      <span>Search by:</span>
+                      <%= label_tag(:name, "Name") %>
+                      <%= radio_button_tag(:search_type, "Name", true) %>
+                      <%= label_tag(:location, "Location") %>
+                      <%= radio_button_tag(:search_type, "Location") %>
+                      <%= submit_tag "Go!", :name => nil, class: 'search_btn' %>
+                   </p>
+               </div>
+            <% end %>
+
+
+            <div class="circle_map"id="map"></div>
+
+         </div>
+
          <!-- NEARBY LOCATIONS code block -->
-         <div class="location_panel col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-3">
+         <div class="location_panel col-xs-12 col-sm-4 col-md-3 col-lg-3">
+            <br>
             <h2>Nearby locations</h2>
                   <% if @locations %>
                       <% @locations.each do |location|%>
@@ -32,31 +55,11 @@
                    <br>
                     <% end %>
                       <%= link_to new_location_path do %>
-                        <button type="button" class="btn btn-info col-lg-offset-4">Add Location</button>
+                        <button type="button" class="btn btn-info col-xs-3 col-xs-offset-4">Add Location</button>
                       <% end %>
 
          </div>
 
-         <div class="col-sm-12 col-md-8 col-lg-8">
-
-            <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
-               <div class="search_bar col-lg-offset-2">
-                   <p><span class="subtitle">Find Anything:  </span>
-                      <%= text_field_tag :search, params[:search], class: "inputting" %>
-                      <span>Search by:</span>
-                      <%= label_tag(:name, "Name") %>
-                      <%= radio_button_tag(:search_type, "Name", true) %>
-                      <%= label_tag(:location, "Location") %>
-                      <%= radio_button_tag(:search_type, "Location") %>
-                      <%= submit_tag "Go!", :name => nil, class: 'search_btn' %>
-                   </p>
-               </div>
-            <% end %>
-
-
-            <div class="circle_map col-lg-offset-1"id="map"></div>
-
-         </div>
       </div>
    </div>
 </div>

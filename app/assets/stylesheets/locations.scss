@@ -43,6 +43,7 @@
    .circle_map{
          height: 550px;
          border-radius: 5%;
+         margin-left: 10px;
    }
 
    // Styles the Grey Panel that contains the list of locations(seeded + user generated)
@@ -50,7 +51,6 @@
       background: #cfcfcf;
       height: 635px;
       font-family: 'Josefin sans', sans-serif;
-      margin-left: 10px;
 
       // Individual list items/locations
       li{
