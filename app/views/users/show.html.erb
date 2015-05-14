@@ -5,7 +5,7 @@
 <div class="row">
 
    <!-- Left-Side Profile Panel -->
-      <div class="col-lg-3 biopanel">
+      <div class="biopanel col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0">
 
          <!-- All User content displayed in this panel is in list-item format -->
          <ul class="list-group">
@@ -26,15 +26,6 @@
                   <%= @user.bio if @user.bio? %>
             </div>
 
-            <div class="list-group-item row text-center bio">
-                  <% if @user.likes.any? %>
-                     <h3>Starred Locations</h3>
-                     <% @user.likes.each do |like| %>
-                        <p><%= link_to Location.find(like.location_id).name, locations_path(:search => Location.find(like.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true %></p>
-                     <% end %>
-                  <% end %>
-
-            </div>
          </ul>
          <!-- End of User content -->
 
@@ -51,10 +42,16 @@
 
 
       <!-- The following code os a display of User Activity throughout the lifetime of the user -->
-      <div class="col-lg-9">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-8">
 
          <!-- This div is/will be populated with the Reviews and Locations the User has liked -->
-         <div class="like_library">
+         <div class="like_library row text-center">
+               <% if @user.likes.any? %>
+                  <h3>Starred Locations</h3>
+                  <% @user.likes.each do |like| %>
+                     <p><%= link_to Location.find(like.location_id).name, locations_path(:search => Location.find(like.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true %></p>
+                  <% end %>
+               <% end %>
 
          </div>
 
@@ -65,7 +62,18 @@
 
          <!-- This div is a list of all the reviews a user has made. Again, if there are none, the page should display 'Share your opinion' in the div center-->
          <div class="review_library">
-
+            <% if @user.reviews.any? %>
+               <h3>Recent Reviews</h3>
+               <% @user.reviews.each do |rev| %>
+                  <p>
+                     <%= @user.review.rating %>
+                     <br>
+                     <%= @user.review.content %>
+                     <br>
+                     <%= @user.review.photo %>
+                  </p>
+               <% end %>
+               <% end %>
          </div>
 
       </div>
