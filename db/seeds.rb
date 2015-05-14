@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 locations = Location.create([
   {name:'The Winchester Mystery House', address:'525 S Winchester Blvd San Jose, CA 95128', yelp_id:'winchester-mystery-house-san-jose'},
   {name:'Antelope Canyon, Arizona', address:'55 S Lake Powell Blvd Page, AZ 86040', yelp_id:'lower-antelope-canyon-page'},
@@ -24,7 +16,15 @@ locations = Location.create([
   {name:'Los Angeles County Museum of Art', address:'5905 Wilshire Blvd Los Angeles, CA 90036', yelp_id:'los-angeles-county-museum-of-art-los-angeles-7'},
   {name:'Griffith Observatory', address:'2800 E Observatory Rd Los Angeles, CA 90027', yelp_id:'griffith-observatory-los-angeles-2'},
   {name:'Watts Tower', address:'1727 E 107th St Los Angeles, CA 90002', yelp_id:'watts-towers-arts-center-los-angeles'},
-  {name:'Huntington Botanical Gardens', address:'1151 Oxford Rd San Marino, CA 91108', yelp_id:'huntington-library-art-collections-and-botanical-gardens-san-marino'}
+  {name:'Huntington Botanical Gardens', address:'1151 Oxford Rd San Marino, CA 91108', yelp_id:'huntington-library-art-collections-and-botanical-gardens-san-marino'},
+  {name:'La Brea Tar Pits', address:'Wilshire Blvd Los Angeles, CA', yelp_id:'la-brea-tar-pits-los-angeles-2'},
+  {name:'Sunken City', address:'500 W Paseo Del Mar San Pedro, CA 90731', yelp_id:'sunken-city-san-pedro'},
+  {name:'The Abnormalarts', address:'11334 Burbank Blvd North Hollywood, CA 91601', yelp_id:'cia-the-california-institute-of-abnormalarts-north-hollywood'},
+  {name:'The Museum of Death', address:'6031 Hollywood Blvd Los Angeles, CA 90028', yelp_id:'museum-of-death-los-angeles-2'},
+  {name:'The Museum of Jurassic Technology', address:'9341 Venice Blvd Culver City, CA 90232', yelp_id:'the-museum-of-jurassic-technology-culver-city'},
+  {name:'Runyon Canyon Park', address:'2001 N Fuller Ave Los Angeles, CA 90046', yelp_id:'runyon-canyon-park-los-angeles-2'},
+  {name:'Potato Chip Rock', address:'14644 Lake Poway Rd Poway, CA 92064', yelp_id:'potato-chip-rock-poway'},
+
 
 
 
