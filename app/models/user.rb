@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
+
+  before_save :downcase_email
+
   has_secure_password(validations: false)
 
   validates :username, :email, :name, :password, presence: true, unless: -> { from_omniauth? }
+
+  validates :email, uniqueness: { case_sensitive: false }, 
+                    format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, unless: -> { from_omniauth? }
 
   has_many :likes, dependent: :destroy
   has_many :comments
@@ -26,6 +32,10 @@ class User < ActiveRecord::Base
 
   def from_omniauth?
     provider && uid
+  end
+
+  def downcase_email
+      self.email.downcase!
   end
 
 end
