@@ -25,6 +25,16 @@
             <div class="list-group-item row text-center bio">
                   <%= @user.bio if @user.bio? %>
             </div>
+
+            <div class="list-group-item row text-center bio">
+                  <% if @user.likes.any? %>
+                     <h3>Starred Locations</h3>
+                     <% @user.likes.each do |like| %>
+                        <p><%= link_to Location.find(like.location_id).name, locations_path(:search => Location.find(like.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true %></p>
+                     <% end %>
+                  <% end %>
+
+            </div>
          </ul>
          <!-- End of User content -->
 
