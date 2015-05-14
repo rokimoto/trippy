@@ -6,10 +6,12 @@ body {
    font-family: 'Josefin sans', sans-serif;
 }
 
+
 .login_form {
   margin-top: 10%;
 }
 
+// Image of Phones on New User Page
 .phoneImg {
   background-image: url('phones.png');
 }
@@ -18,6 +20,7 @@ body {
   color: #FF8000;
 }
 
+// A custom button class
 .orange {
   background-color: #FF8000;
   color: white;
@@ -30,12 +33,16 @@ body {
 .fbBox {
   text-align: center;
 }
+
+// Following code styles the content of the About Page
 .sessions.about{
    font-family: 'Josefin sans', sans-serif;
 
+   // Content all nested inside this div
    .maintext{
       margin-bottom: 40px;
          ul{
+            // Remove bullets
             list-style-type: none;
             li{
                p{
@@ -47,16 +54,3 @@ body {
       }
    }
 }
-// Commenting out the code below due to merge conflict. If it's needed please just uncomment it!
-// .box{
-//    font-family: 'Josefin Sans', sans-serif;
-//    font-size: 1.3em;
-//    .input{
-//       height: 30px;
-//       border: 2px solid #ff6f00;
-//       border-radius: 50px;
-//       background: white;
-//       color: black;
-//       padding-top: 10px;
-//    }
-// }
