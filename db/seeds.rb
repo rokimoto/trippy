@@ -36,6 +36,21 @@ locations = Location.create([
   {name:'Petrified Wood Park', address:'500 Main Ave Lemmon, SD 57638', yelp_id:'the-petrified-wood-park-and-museum-lemmon'},
   {name:'Coral Castle', address:'28655 S Dixie Hwy Homestead, FL 33033', yelp_id:'coral-castle-homestead'},
   {name:'International Banana Museum', address:'98775 Hwy 111 Mecca, CA 92254', yelp_id:'international-banana-museum-mecca'},
+  {name:'The Bonnie and Clyde Death Car', address:'31900 S Las Vegas Blvd Primm, NV 89019', yelp_id:'primm-valley-resort-and-casino-primm'},
+  {name:"Minister's Tree House", address:'Beehive Lane Crossville, TN 38571', yelp_id:'ministers-tree-house-crossville'},
+  {name:'Town Atop A Burning Coal Mine', address:'Centralia, PA 17921', yelp_id:'centralia-centralia-4'},
+  {name:'Big Tree Drive-Thru', address:'67402 Drive Thru Tree Road Leggett, CA 95585', yelp_id:'drive-thru-tree-leggett'},
+  {name:"Hershey's Chocolate World", address:'251 Park Blvd Hershey, PA 17033', yelp_id:'hersheys-chocolate-world-hershey'},
+  {name:'Kaatskill Kaleidoscope', address:'5340 Route 28 Mount Tremper, NY 12457', yelp_id:'kaatskill-kaleidoscope-mount-tremper'},
+  {name:'The Thing?', address:'2631 N Johnson Rd Dragoon, AZ 85609', yelp_id:'the-thing-dragoon'},
+  {name:"Cano's Castle", address:'Hwy 285 Antonito, CO 81120', yelp_id:'canos-castle-antonito'},
+  {name:'Largest Ball of Twine', address:'Darwin, MN 55324', yelp_id:'worlds-largest-ball-of-twine-darwin'},
+  {name:"Nicolas Cage's Tomb", address:'320 N Claiborne Ave New Orleans, LA 70112', yelp_id:'st-louis-cemetery-2-new-orleans-2'},
+  {name:'A Chocolate Moose', address:'419 US Rt 1 Scarborough, ME 04074',yelp_id:'len-libby-candy-shops-scarborough'},
+  {name:'National Atomic Testing Museum', address:'755 E Flamingo Rd Las Vegas, NV 89119', yelp_id:'national-atomic-testing-museum-las-vegas'},
+  {name:'Area 51 Alien Travel Center', address:'2711 E US Hwy 95 Amargosa Valley, NV 89020', yelp_id:'area-51-alien-travel-center-amargosa-valley'},
+
+
 
 
 
