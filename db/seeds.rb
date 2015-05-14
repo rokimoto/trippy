@@ -24,6 +24,18 @@ locations = Location.create([
   {name:'The Museum of Jurassic Technology', address:'9341 Venice Blvd Culver City, CA 90232', yelp_id:'the-museum-of-jurassic-technology-culver-city'},
   {name:'Runyon Canyon Park', address:'2001 N Fuller Ave Los Angeles, CA 90046', yelp_id:'runyon-canyon-park-los-angeles-2'},
   {name:'Potato Chip Rock', address:'14644 Lake Poway Rd Poway, CA 92064', yelp_id:'potato-chip-rock-poway'},
+  {name:'Salvation Mountain', address:'Beal Rd Niland, CA 92257', yelp_id:'salvation-mountain-niland'},
+  {name:'Center of The World', address:'1 Center of the World Dr Felicity, CA 92283', yelp_id:'center-of-the-world-felicity-2'},
+  {name:'Cabazon Dinosaurs', address:'50800 Seminole Dr Cabazon, CA 92230', yelp_id:'cabazon-dinosaurs-cabazon'},
+  {name:'Time Travel Mart', address:'1714 W Sunset Blvd Los Angeles, CA 90026', yelp_id:'time-travel-mart-los-angeles'},
+  {name:'Lava Tubes', address:'2701 Barstow Rd Barstow, CA 92311', yelp_id:'mojave-national-preserve-barstow-2'},
+  {name:'Bubblegum Alley', address:'733.5 Higuera Street San Luis Obispo, CA 93401', yelp_id:'bubblegum-alley-san-luis-obispo-2'},
+  {name:'Paramount Ranch', address:'2903 Cornell Rd Agoura Hills, CA 91301', yelp_id:'paramount-ranch-agoura-hills'},
+  {name:'Marfa Mystery Lights Viewing Area', address:'Hwy 90 Marfa, TX 79843', yelp_id:'marfa-mystery-lights-viewing-area-marfa'},
+  {name:'Oregon Vortex Mystery House', address:'4303 Sardine Crk L Frk Rd Gold Hill, OR 97525', yelp_id:'house-of-mystery-at-the-oregon-vortex-gold-hill'},
+  {name:'Petrified Wood Park', address:'500 Main Ave Lemmon, SD 57638', yelp_id:'the-petrified-wood-park-and-museum-lemmon'},
+  {name:'Coral Castle', address:'28655 S Dixie Hwy Homestead, FL 33033', yelp_id:'coral-castle-homestead'},
+  {name:'International Banana Museum', address:'98775 Hwy 111 Mecca, CA 92254', yelp_id:'international-banana-museum-mecca'},
 
 
 
