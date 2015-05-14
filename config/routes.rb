@@ -21,13 +21,17 @@ Rails.application.routes.draw do
   root 'users#new'
 
   get 'users/:id' => 'users#show'
-   
+
+
+   # CRUD Routes for Users and nested CRUD for reviews
    resources :users do
       resources :reviews
       end
 
   resources :locations
 
+
+# Routes for all API views
   namespace :api do
     get 'locations_api/search_name' => 'locations_api#search_name'
     get 'locations_api/search_location' => 'locations_api#search_location'

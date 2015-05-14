@@ -15,6 +15,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  # Only images in these formats are allowed to be uploaded
   def extension_white_list
     %w(jpg jpeg gif png)
   end
