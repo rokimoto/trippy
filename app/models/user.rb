@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password(validations: false)
 
-  validates :username, :email, :name, :password, presence: true, unless: -> { from_omniauth? }
+  validates :username, :email, :name, :password, presence: true, unless: -> { from_omniauth? }, on: :create
 
   has_many :likes, dependent: :destroy
   has_many :comments
@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+
 
   def from_omniauth?
     provider && uid
