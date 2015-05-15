@@ -10,10 +10,10 @@ $(document).ready(function() {
     var modalContent = "";
 
     /*** This will get filled by yelp content ***/
-    var yelpContent = "";
+    var yelpContent = "<div class='yelpContent'>";
 
     /*** This is overwritten if a review is present ***/
-    var eachReviewContent = "";
+    var eachReviewContent = "<div class='reviewContent'>";
 
     /*** This is the div that holds all the images ***/
     var imageGallery = "<div class='imageGallery'>";
@@ -23,7 +23,7 @@ $(document).ready(function() {
       console.log(data);
 
       /*** phone number ***/
-      yelpContent = "<div>Phone: ";
+      yelpContent += "<div>Phone: ";
       yelpContent += data.display_phone || "not available";
       yelpContent +=  "</div>";
 
@@ -64,13 +64,21 @@ $(document).ready(function() {
         
       }); // close .each
 
-      /*** closes image gallery div ***/
-      imageGallery += "</div>";
 
       /*** states there is no reviews if there is no reviews ***/
-      if(eachReviewContent === "") {
-        eachReviewContent =+ "<div>No reviews yet!</div>";
+      if(eachReviewContent == "<div class='reviewContent'>") {
+        eachReviewContent += "<div>No reviews yet!</div>";
       }
+
+
+      /*** closes yelp content div ***/
+      yelpContent += "</div>";
+      /*** closes image gallery div ***/
+      imageGallery += "</div>";
+      /*** closes review content div ***/
+      eachReviewContent += "</div>";
+
+
 
       // appends each content section and displays it in the modal
       modalContent += yelpContent;
