@@ -4,7 +4,7 @@ $(document).ready(function() {
   function fillModal(name, id, yelp_id) {
     $('#myModalLabel').text(name);
     $('#like_location_id').val(id);
-    $("#addReviewButton").attr("href", "/locations/" + id)
+    $("#addReviewButton").attr("href", "/locations/" + id);
 
     // modalContent is the granddaddy of the modal content
     var modalContent = "";
@@ -35,14 +35,14 @@ $(document).ready(function() {
           yelpContent += ", ";
         }
       }
-      yelpContent += "</div>"; 
-    
+      yelpContent += "</div>";
+
     }); // close yelp get
 
     $.get('/api/locations_api/reviews/' + id, function(data) {
       $.each(data, function(index, item) {
         var ratingNum = parseInt(item.rating);
-      
+
         /*** reviewer's name ***/
         eachReviewContent += "<div>Name: " + item.user_name + "</div>";
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
         if(item.photo.url) {
           imageGallery += String("<div><img class='img-rounded' src=" + item.photo.url + "></div>");
         }
-        
+
       }); // close .each
 
 
@@ -87,7 +87,7 @@ $(document).ready(function() {
       $('#myModalBody').html(modalContent);
 
     }); // close reviews get
-    
+
   }
 
   // gets the parameters of the search string
@@ -175,7 +175,7 @@ $(document).ready(function() {
 
       });
 
-      // 
+      //
       google.maps.event.addListener(item, "click", function (e) {
         var id = this.id;
         var yelp_id = this.yelp_id;
@@ -187,7 +187,7 @@ $(document).ready(function() {
           fillModal(name, id, yelp_id);
           $('#showModal').modal('show')
         };
-        infowindow.open(map, this);  
+        infowindow.open(map, this);
 
       }); // close add event
 
