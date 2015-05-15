@@ -8,6 +8,7 @@ $(document).ready(function() {
 
     // modalContent is the granddaddy of the modal content
     var modalContent = "";
+    var indivrev = '';
 
     /*** This will get filled by yelp content ***/
     var yelpContent = "<div class='yelpContent'>";
@@ -24,7 +25,7 @@ $(document).ready(function() {
 
       /*** phone number ***/
       yelpContent += "<div>Phone: ";
-      yelpContent += data.display_phone || "not available";
+      yelpContent += data.display_phone || "No info";
       yelpContent +=  "</div>";
 
       /*** categories ***/
@@ -35,38 +36,41 @@ $(document).ready(function() {
           yelpContent += ", ";
         }
       }
-      yelpContent += "</div>"; 
-    
+      yelpContent += "</div>";
+
     }); // close yelp get
 
     $.get('/api/locations_api/reviews/' + id, function(data) {
       $.each(data, function(index, item) {
+
         var ratingNum = parseInt(item.rating);
-      
+        var indivrev = "<div class='well text-left'>";
+
         /*** reviewer's name ***/
-        eachReviewContent += "<div>Name: " + item.user_name + "</div>";
+        indivrev += "<div class='revname'><h5> " + item.user_name + "</h5></div>";
 
         /*** review rating as stars ***/
-        eachReviewContent += "<div>Rating: ";
+        indivrev += "<div class='revstars'>";
         for(var i = 0; i < ratingNum; i++) {
-          eachReviewContent += "<span class='glyphicon glyphicon-star'></span>";
+          indivrev += "<span class='glyphicon glyphicon-star'></span>";
         }
-        eachReviewContent += "</div>";
+        indivrev += "</div>";
 
         /*** review content ***/
-        eachReviewContent += String("<div>Content: " + item.content + "</div>");
+        indivrev += String("<div class='revbody'>" + item.content + "</div>");
 
 
         /*** pushes photo to image gallery ***/
         if(item.photo.url) {
           imageGallery += String("<div><img class='img-rounded' src=" + item.photo.url + "></div>");
         }
-        
+        indivrev += "</div>";
+        eachReviewContent += indivrev;
       }); // close .each
 
 
       /*** states there is no reviews if there is no reviews ***/
-      if(eachReviewContent == "<div class='reviewContent'>") {
+      if(indivrev == "<div class='reviewContent'>") {
         eachReviewContent += "<div>No reviews yet!</div>";
       }
 
@@ -87,7 +91,7 @@ $(document).ready(function() {
       $('#myModalBody').html(modalContent);
 
     }); // close reviews get
-    
+
   }
 
   // gets the parameters of the search string
@@ -175,7 +179,7 @@ $(document).ready(function() {
 
       });
 
-      // 
+      //
       google.maps.event.addListener(item, "click", function (e) {
         var id = this.id;
         var yelp_id = this.yelp_id;
@@ -187,7 +191,7 @@ $(document).ready(function() {
           fillModal(name, id, yelp_id);
           $('#showModal').modal('show')
         };
-        infowindow.open(map, this);  
+        infowindow.open(map, this);
 
       }); // close add event
 
