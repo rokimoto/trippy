@@ -1,4 +1,5 @@
 locations = Location.create([
+
   {name:'The Winchester Mystery House', address:'525 S Winchester Blvd San Jose, CA 95128', yelp_id:'winchester-mystery-house-san-jose'},
   {name:'Antelope Canyon, Arizona', address:'55 S Lake Powell Blvd Page, AZ 86040', yelp_id:'lower-antelope-canyon-page'},
   {name:'Watkins Glen State Park', address:'1009 N Franklin St Watkins Glen, NY 14891', yelp_id:'watkins-glen-state-park-watkins-glen'},
@@ -49,14 +50,4 @@ locations = Location.create([
   {name:'A Chocolate Moose', address:'419 US Rt 1 Scarborough, ME 04074',yelp_id:'len-libby-candy-shops-scarborough'},
   {name:'National Atomic Testing Museum', address:'755 E Flamingo Rd Las Vegas, NV 89119', yelp_id:'national-atomic-testing-museum-las-vegas'},
   {name:'Area 51 Alien Travel Center', address:'2711 E US Hwy 95 Amargosa Valley, NV 89020', yelp_id:'area-51-alien-travel-center-amargosa-valley'},
-
-
-
-
-
-
-
-
-
-
-  ])
+])

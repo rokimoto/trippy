@@ -4,7 +4,7 @@ $(document).ready(function() {
   function fillModal(name, id, yelp_id) {
     $('#myModalLabel').text(name);
     $('#like_location_id').val(id);
-    $("#addReviewButton").attr("href", "/locations/" + id)
+    $("#addReviewButton").attr("href", "/locations/" + id);
 
     // modalContent is the granddaddy of the modal content
     var modalContent = "";
@@ -44,7 +44,10 @@ $(document).ready(function() {
       $.each(data, function(index, item) {
 
         var ratingNum = parseInt(item.rating);
+<<<<<<< HEAD
+=======
         var indivrev = "<div class='well text-left'>";
+>>>>>>> master
 
         /*** reviewer's name ***/
         indivrev += "<div class='revname'><h5> " + item.user_name + "</h5></div>";
@@ -64,8 +67,12 @@ $(document).ready(function() {
         if(item.photo.url) {
           imageGallery += String("<div><img class='img-rounded' src=" + item.photo.url + "></div>");
         }
+<<<<<<< HEAD
+
+=======
         indivrev += "</div>";
         eachReviewContent += indivrev;
+>>>>>>> master
       }); // close .each
 
 
