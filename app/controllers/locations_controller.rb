@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
         end
       end
     else
-      @locations = Location.all.limit(20)
+      @locations = Location.all.limit(20) #Location Limited to 20
     end
   end
 
