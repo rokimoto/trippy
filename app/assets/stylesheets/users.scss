@@ -35,7 +35,7 @@
 
    // This biopanel contains all the user attributes and button
    .biopanel{
-      background: green;
+      // background: green;
       height: 635px;
       display: fixed;
       color: black;
@@ -57,14 +57,47 @@
    }
 
    .like_library{
-      background-color: green;
+      // background-color: green;
       height: 200px;
+      margin: 0;
    }
    .review_library{
 
    }
    .photo_library{
-      border: 5px solid orange;
-      height: 200px;
+      height: 400px;
+      background-color: #FF6F00;
+      overflow: hidden;
+      width: 100%;
+
    }
+   .carousel-example-generic, .carousel-control {
+      height: 400px;
+   }
+
+   .carousel-control .left{
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%)
+   }
+
+   .modal-image {
+   margin: 0 auto;
+      height: 400px;
+   }
+
+   #user-activity {
+      padding: 0;
+   }
+
+   .glyphicon-star {
+      color: yellow;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: grey;
+      margin-left: 8px;
+   }
+
+   .item {
+      overflow: hidden;
+   }
+
+
 }
