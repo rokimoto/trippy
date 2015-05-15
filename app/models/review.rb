@@ -10,4 +10,8 @@ class Review < ActiveRecord::Base
     self.photo.url
   end
 
+  def date_added
+    created_at.localtime.strftime("%-m/%-d/%Y")
+  end
+
 end
