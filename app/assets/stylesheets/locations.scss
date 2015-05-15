@@ -42,6 +42,19 @@
 // Modal Styling Code Block
 .modal{
    font-family: 'Josefin-sans', sans-serif;
+   .modal-body{
+      .reviewContent{
+         .indivrev{
+            border-radius: 0;
+         }
+      }
+      .imageGallery{
+         .img-rounded{
+            margin: 5px;
+         }
+      }
+   }
+
 }
 
 
@@ -117,5 +130,12 @@
       .pics{
 
       }
+   }
+}
+
+.locations.new{
+   font-family: 'Josefin-sans', sans-serif;
+   .newLocation{
+      margin-top: 150px;
    }
 }
