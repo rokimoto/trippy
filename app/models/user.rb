@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  before_save :downcase_email
+  before_save :downcase_email, unless: -> { from_omniauth? }
 
   has_secure_password(validations: false)
 
