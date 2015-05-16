@@ -24,18 +24,26 @@ RSpec.describe User, type: :model do
       user = FactoryGirl.build(:user_without_password)
       expect(user).to be_invalid
    end
-   # # 5th Case: Password not valid without length >= 8
-   # it 'password rejected if less than 8 chars' do
-   #
-   # end
-   # # 6th Case: Password not valid without one character == /0123456789/
-   # it 'password rejected if it does not contain a number' do
-   #
-   # end
-   # # 7th Case: Model not created if email does not contain @ symbol as well as a .
-   # it 'email invalid without an @ symbol and a .' do
-   #
-   # end
+   # 5th Case: Password not valid without length >= 8
+   it 'password rejected if less than 8 chars' do
+      user = FactoryGirl.build(:user_short_pass)
+      expect(user).to be_invalid
+   end
+   # 6th Case: Password valid when length > 8
+   it 'password passes when password > 8 chars' do
+      user = FactoryGirl.build(:user_10char_pass)
+      expect(user).to be_valid
+   end
+   # 7th Case: Password not valid without one character == /0123456789/
+   it 'password rejected if it does not contain a number' do
+      user = FactoryGirl.build(:user_pass_nonum)
+      expect(user).to be_invalid
+   end
+   # 8th Case: Model not created if email does not contain @ symbol as well as a .
+   it 'email invalid without an @ symbol and a .' do
+      user = FactoryGirl.build(:user_wrong_email)
+      expect(user).to be_invalid
+   end
 
 
 end
