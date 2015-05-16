@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get "loggedin" => "sessions#loggedin"
   delete 'sessions' => "sessions#destroy"
 
-  post 'likes' => "likes#create"
+
+  resources :likes
 
   match 'auth/:provider/callback', to: 'sessions#create_facebook', via: [:get, :post]
   match 'auth/failure', to: redirect('login'), via: [:get, :post]

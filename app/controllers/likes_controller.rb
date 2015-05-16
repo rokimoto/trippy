@@ -11,6 +11,13 @@ class LikesController < ApplicationController
     end
   end
 
+  def destroy
+    flash[:alert] = "Unfavorited your location!"
+    @like = Like.find(params[:id])
+    @like.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
   def like_params
     params.require(:like).permit(:user_id, :location_id)

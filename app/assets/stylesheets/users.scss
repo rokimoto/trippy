@@ -60,11 +60,12 @@
       // background-color: green;
       height: 200px;
       margin: 0;
+      padding: 0 50px;
    }
    .review_library{
       margin-top: 30px;
       border-top: 1px solid #ddd;
-
+      padding: 0 50px 30px;
    }
    .photo_library{
       height: 400px;
@@ -84,7 +85,7 @@
 
    .modal-image {
       margin: 0 auto;
-      height: 400px;
+      height: 340px;
    }
 
    #user-activity {
@@ -99,11 +100,11 @@
       margin-left: 8px;
    }
    .glyphicon-circle-arrow-left, .glyphicon-circle-arrow-right {
-      color: red;
+      color: darkred;
       font-size: 3em;
-      right: 50%;
+      right: 30%;
       position: absolute;
-      top: 50%;
+      top: 30%;
       z-index: 5;
       display: inline-block;
    }
@@ -114,6 +115,36 @@
 
    .item {
       overflow: hidden;
+   }
+
+   .review-location-name {
+      font-size: 1.2em;
+   }
+
+   .box-top {
+      margin-top: 10px;
+   }
+
+   .review-location-content {
+      font-style: italic;
+   }
+
+   .user-review-container {
+      border-bottom: 1px solid #ddd;
+   }
+
+   .photo-library-header {
+      text-align: center;
+      margin-bottom: 20px;
+   }
+
+   .mush-icon {
+      height: 15px;
+      margin-top: -5px;
+   }
+
+   .glyphicon-remove {
+      color: darkred;
    }
 
 

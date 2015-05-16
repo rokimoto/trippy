@@ -41,17 +41,27 @@
   <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-8" id="user-activity">
 
     <!-- This div is/will be populated with the Reviews and Locations the User has liked -->
-    <div class="like_library row text-center">
+    <div class="like_library row">
       <% if @user.likes.any? %>
         <h3>Starred Locations</h3>
         <% @user.likes.each do |like| %>
-          <p><%= link_to Location.find(like.location_id).name, locations_path(:search => Location.find(like.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true %></p>
+          <p><%= link_to Location.find(like.location_id).name, locations_path(:search => Location.find(like.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true %>
+            <%= link_to locations_path(:search => Location.find(like.location_id).name, :search_type => "Name") do %>
+              <%= image_tag 'mush-icon-yellow.svg', class: 'mush-icon' %>
+            <% end %>
+            <%= link_to like, method: :delete, data: {confirm: "Are you sure you want to unlike this location?"} do %>
+              <span class="glyphicon glyphicon-remove"></span>
+            <% end %></p>
         <% end %>
+      <% else %>
+        <p>No likes yet!</p>
       <% end %>
     </div>
 
     <!-- This div is going to be a carousel, lol sorry Rob, of all the photos Users have submitted. If there are none, it should display "Upload a memory' in the middle of the page." -->
     <div class="photo_library">
+
+    <h3 class="photo-library-header">Recently Added Pictures</h3>
 
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
@@ -96,19 +106,20 @@
          <div class="review_library">
             <% if @user.reviews.any? %>
                <h3>Recent Reviews</h3>
-               <% @user.reviews.each do |review| %>
-                  <p>
-                     <strong><%= link_to Location.find(review.location_id).name, locations_path(:search => Location.find(review.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true  %></strong>
-                  </p>
-                  <p><%= review.date_added %></p>
-                  <p>
-                     <% review.rating.to_i.times do %>
-                       <span class="glyphicon glyphicon-star"></span>
-                     <% end %>
-                  </p>
-                  <p>
-                     <%= review.content %>
-                  </p>
+               <% @user.reviews.limit(5).each do |review| %>
+                  <div class="user-review-container">
+                    <p class="box-top">
+                       <strong><span class="review-location-name"><%= link_to Location.find(review.location_id).name, locations_path(:search => Location.find(review.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true  %></span></strong> <%= review.date_added %>
+                    </p>
+                    <p>
+                       <% review.rating.to_i.times do %>
+                         <span class="glyphicon glyphicon-star"></span>
+                       <% end %>
+                    </p>
+                    <p>
+                       <span class="review-location-content"><%= review.content %></span>
+                    </p>
+                  </div>
                <% end %>
             <% end %>
          </div>
