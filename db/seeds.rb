@@ -1,7 +1,7 @@
 users = User.create([
-  {name: "Rachel Okimoto", email: "rachel.okimoto@gmail.com", password: "rachel", role: "admin"},
-  {name: "Dustin Baker", email: "dustin.t.baker22@gmail.com", password: "dustin", role: "admin"},
-  {name: "Will Carron", email: "wacarron27@gmail.com", password: "will", role: "admin"}
+  {name: "Rachel Okimoto", username: "rokimoto", email: "rachel.okimoto@gmail.com", password: "rachel", role: "admin"},
+  {name: "Dustin Baker", username: "dbaker", email: "dustin.t.baker22@gmail.com", password: "dustin", role: "admin"},
+  {name: "Will Carron", username: "wcarron", email: "wacarron27@gmail.com", password: "will", role: "admin"}
 ])
 
 
