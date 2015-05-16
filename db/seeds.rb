@@ -1,3 +1,11 @@
+users = User.create([
+  {name: "Rachel Okimoto", email: "rachel.okimoto@gmail.com", password: "rachel", role: "admin"},
+  {name: "Dustin Baker", email: "dustin.t.baker22@gmail.com", password: "dustin", role: "admin"},
+  {name: "Will Carron", email: "wacarron27@gmail.com", password: "will", role: "admin"}
+])
+
+
+
 locations = Location.create([
 
   {name:'The Winchester Mystery House', address:'525 S Winchester Blvd San Jose, CA 95128', yelp_id:'winchester-mystery-house-san-jose'},
@@ -52,10 +60,5 @@ locations = Location.create([
   {name:'Area 51 Alien Travel Center', address:'2711 E US Hwy 95 Amargosa Valley, NV 89020', yelp_id:'area-51-alien-travel-center-amargosa-valley'},
 ])
 
-users = User.create([
-  {name: "Rachel Okimoto", email: "rachel.okimoto@gmail.com", password: "rachel", role: "admin"},
-  {name: "Dustin Baker", email: "dustin.t.baker22@gmail.com", password: "dustin", role: "admin"},
-  {name: "Will Carron", email: "wacarron27@gmail.com", password: "will", role: "admin"}
-])
 
 
