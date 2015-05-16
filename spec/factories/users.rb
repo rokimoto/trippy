@@ -19,4 +19,33 @@ FactoryGirl.define do
       email "max123@perpendicular.com"
       name 'maxwell'
    end
+
+   factory :user_short_pass, class: User do
+      username "jeryl2222"
+      email "jeryl@jeryl.com"
+      name "jjcool_l"
+      password 'misterT'
+   end
+
+   factory :user_10char_pass, class: User do
+      username "jeryl2222"
+      email "jeryl@jeryl.com"
+      name "jjcool_l"
+      password 'misterT224'
+   end
+
+   factory :user_pass_nonum, class: User do
+      username "jeryl2222"
+      email "jeryl@jeryl.com"
+      name "jjcool_l"
+      password 'misterTTTP'
+   end
+
+   factory :user_wrong_email, class: User do
+      username "jeryl2222"
+      email "jeryljeryl.com"
+      name "jjcool_l"
+      password 'misterT224'
+   end
+
 end

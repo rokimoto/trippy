@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: { case_sensitive: false },
                     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, unless: -> { from_omniauth? }
 
+  validates :password, length: { minimum: 8 }, format: { with: /\d/ }, unless: -> { from_omniauth? }
+
+
   has_many :likes, dependent: :destroy
   has_many :comments
   has_many :reviews
