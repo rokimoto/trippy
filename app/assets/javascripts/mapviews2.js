@@ -45,9 +45,7 @@ $(document).ready(function() {
 
         var ratingNum = parseInt(item.rating);
 
-
         var indivrev = "<div class='well text-left'>";
-
 
         /*** reviewer's name ***/
         indivrev += "<div class='revname'><h5> " + item.user_name + "</h5></div>";
@@ -68,8 +66,11 @@ $(document).ready(function() {
           imageGallery += String("<div><img class='img-rounded' src=" + item.photo.url + "></div>");
         }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
         indivrev += "</div>";
         eachReviewContent += indivrev;
 
