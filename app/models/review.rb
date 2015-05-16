@@ -8,6 +8,7 @@ class Review < ActiveRecord::Base
   validates :content, :rating, presence: true
 
 
+
   def has_photo?
     self.photo.url
   end

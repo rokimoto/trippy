@@ -22,4 +22,21 @@ RSpec.describe Review, type: :model do
     expect(review).to be_invalid
   end
 
+  it "Is valid with rating" do
+    review = FactoryGirl.build(:review5)
+    expect(review).to be_valid
+  end
+
+  it "Has User Name" do
+    review = FactoryGirl.build(:review6)
+    expect(review.user_name).to eq("Dustin Baker")
+  end
+
+  it "Has no user name" do
+    review = FactoryGirl.build(:review7)
+    expect(review.user_name).to eq("")
+  end
+
+
+
 end

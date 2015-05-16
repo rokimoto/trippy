@@ -18,6 +18,25 @@ FactoryGirl.define do
     content "blah"
   end
 
+  factory :review5, class: Review do
+    content "blah"
+    rating 5
+  end
+
+  factory :review6, class: Review do
+    content "blah"
+    rating 5
+    user_name "Dustin Baker"
+  end
+
+  factory :review7, class: Review do
+    content "blah"
+    rating 5
+    user_name ""
+  end
+
+
+
 
 
 
