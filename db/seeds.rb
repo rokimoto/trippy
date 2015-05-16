@@ -51,3 +51,11 @@ locations = Location.create([
   {name:'National Atomic Testing Museum', address:'755 E Flamingo Rd Las Vegas, NV 89119', yelp_id:'national-atomic-testing-museum-las-vegas'},
   {name:'Area 51 Alien Travel Center', address:'2711 E US Hwy 95 Amargosa Valley, NV 89020', yelp_id:'area-51-alien-travel-center-amargosa-valley'},
 ])
+
+users = User.create([
+  {name: "Rachel Okimoto", email: "rachel.okimoto@gmail.com", password: "rachel", role: "admin"},
+  {name: "Dustin Baker", email: "dustin.t.baker22@gmail.com", password: "dustin", role: "admin"},
+  {name: "Will Carron", email: "wacarron27@gmail.com", password: "will", role: "admin"}
+])
+
+
