@@ -5,6 +5,9 @@ class Review < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 
+  validates :content, :rating, presence: true
+
+
 
   def has_photo?
     self.photo.url

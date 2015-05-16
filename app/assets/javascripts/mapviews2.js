@@ -66,6 +66,11 @@ $(document).ready(function() {
           imageGallery += String("<div><img class='img-rounded' src=" + item.photo.url + "></div>");
         }
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> master
         indivrev += "</div>";
         eachReviewContent += indivrev;
 
