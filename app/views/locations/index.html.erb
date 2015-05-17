@@ -20,9 +20,9 @@
 
             <%= form_tag locations_path, :method => :get, :class => 'inputting' do %>
                <div class="search_bar">
-                   <p><span class="subtitle">Find Anything:  </span>
-                      <%= text_field_tag :search, params[:search], class: "inputting" %>
-                      <span>Search by:</span>
+                   <p class="inline-p"><span class="subtitle">Find Anything:  </span>
+                      <%= text_field_tag :search, params[:search], class: "inputting" %></p>
+                      <p class="inline-p"><span>Search by:</span>
                       <%= label_tag(:name, "Name") %>
                       <%= radio_button_tag(:search_type, "Name", true) %>
                       <%= label_tag(:location, "Location") %>

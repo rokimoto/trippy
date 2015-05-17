@@ -41,4 +41,13 @@ class User < ActiveRecord::Base
       self.email.downcase!
   end
 
+  def has_photo_reviews?
+    self.reviews.each do |review|
+      if review.photo.url
+        return true
+      end
+    end
+    false
+  end
+
 end
