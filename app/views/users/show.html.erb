@@ -8,17 +8,17 @@
   <div class="biopanel col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0">
 
     <!-- All User content displayed in this panel is in list-item format -->
-    <div class="list-group">
+    <div class="list-group left-panel">
 
-      <div class="list-group-item row text-center name">
+      <div class="row text-center name">
          <h2><%= @user.name %></h2>
       </div>
 
-      <div class="list-group-item row text-center pimage">
+      <div class="row text-center pimage">
          <%= image_tag @user.profile_picture.url || 'default_profile_pic.jpg', class: 'proimage'  %>
       </div>
 
-      <div class="list-group-item row text-center bio">
+      <div class="row text-center bio">
          <h3>Bio</h3>
             <%= @user.bio || "No bio added yet!" %>
       </div>
@@ -42,10 +42,11 @@
 
     <!-- This div is/will be populated with the Reviews and Locations the User has liked -->
     <div class="like_library row">
+      <h3>Starred Locations</h3>
       <% if @user.likes.any? %>
-        <h3>Starred Locations</h3>
+        
         <% @user.likes.each do |like| %>
-          <p><%= link_to Location.find(like.location_id).name, locations_path(:search => Location.find(like.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true %>
+          <p class="like-p"><%= link_to Location.find(like.location_id).name, locations_path(:search => Location.find(like.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true %>
             <%= link_to locations_path(:search => Location.find(like.location_id).name, :search_type => "Name") do %>
               <%= image_tag 'mush-icon-yellow.svg', class: 'mush-icon' %>
             <% end %>
@@ -67,23 +68,28 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          
-          <% @user.reviews.each_with_index do |review, index| %>
+          <% if @user.has_photo_reviews? %>
+            <% @user.reviews.each_with_index do |review, index| %>
 
-            <% if review.has_photo? %>
-              <% if index == 0 %>
-                <div class="item active">
-              <% else %>
-                <div class="item">
-              <% end %>
-                  <%= image_tag review.photo.url, class: 'modal-image' %>
-                  <div class="carousel-caption">
-                    <%= Location.find(review.location_id).name %>
-                  </div>
-                </div> <!-- end item -->
-              <% end %> <!-- end has_photo? -->
+              <% if review.has_photo? %>
+                <% if index == 0 %>
+                  <div class="item active">
+                <% else %>
+                  <div class="item">
+                <% end %>
+                    <%= image_tag review.photo.url, class: 'modal-image' %>
+                    <div class="carousel-caption">
+                      <%= Location.find(review.location_id).name %>
+                    </div>
+                  </div> <!-- end item -->
+                <% end %> <!-- end has_photo? -->
 
-          <% end %> <!-- end each review -->
+            <% end %> <!-- end each review -->
+          <% else %>
+            <div class="item active">
+              <%= image_tag 'default-review-photo.jpg', class: 'modal-image' %>
+            </div>
+          <% end %>
         </div>
            
 
@@ -104,8 +110,8 @@
 
          <!-- This div is a list of all the reviews a user has made. Again, if there are none, the page should display 'Share your opinion' in the div center-->
          <div class="review_library">
+            <h3>Recent Reviews</h3>
             <% if @user.reviews.any? %>
-               <h3>Recent Reviews</h3>
                <% @user.reviews.limit(5).each do |review| %>
                   <div class="user-review-container">
                     <p class="box-top">
@@ -121,6 +127,8 @@
                     </p>
                   </div>
                <% end %>
+            <% else %>
+              <p> No reviews yet!</p>
             <% end %>
          </div>
 

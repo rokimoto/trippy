@@ -35,9 +35,6 @@
 
    // This biopanel contains all the user attributes and button
    .biopanel{
-      // background: green;
-      height: 635px;
-      display: fixed;
       color: black;
 
       // div contained profile picture
@@ -57,10 +54,8 @@
    }
 
    .like_library{
-      // background-color: green;
-      height: 200px;
       margin: 0;
-      padding: 0 50px;
+      padding: 10px 50px 20px;
    }
    .review_library{
       margin-top: 30px;
@@ -147,5 +142,34 @@
       color: darkred;
    }
 
+   .like-p {
+      float: left;
+      width: 30%;
+   }
 
 }
+
+@media (max-width: 992px) {
+   .users.show {
+      .like-p {
+         width: 50%;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .users.show {
+      .bio-panel {
+         border-bottom: 1px solid #ddd;
+      }
+      #user-activity {
+         border-left: none;
+      }
+
+   }
+}
+
+
+
+
+
