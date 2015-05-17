@@ -115,15 +115,27 @@
    // All page content is contained inside the revpage div
    .revpage{
       margin-top: 80px;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      .addrevbtn{
+         margin-bottom: 20px;
+      }
 
       // This div contains the basic info of the location + metrics
       .info{
-         border: 2px solid black;
+         border-radius: 25px;
       }
 
       // This div will be populated by any reviews attached to the location
       .revs{
-         border: 2px solid red;
+         border: 2px solid orange;
+         border-radius: 30px;
+         .indrev{
+            margin-bottom: 10px;
+         }
+         .backbtn{
+            margin-bottom: 20px;
+         }
       }
 
       // This div is populated by any images uploaded to the location through reviews
@@ -145,5 +157,3 @@
       display: inline-block;
    }
 }
-
-
