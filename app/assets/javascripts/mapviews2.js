@@ -149,6 +149,7 @@ $(document).ready(function() {
 
   // builds the map according to data
   function makeMap(data) {
+    console.log(data);
     var mapOptions = {
       zoom: 8
     };

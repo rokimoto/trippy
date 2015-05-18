@@ -51,7 +51,7 @@
            <div class="indrev">
              <!-- Indiviual Review Fields -->
              <h4 class="well"><%= User.find(review.user_id).username || User.find(review.user_id).name %></h4>
-             <p>Rating: <% review.rating.to_i.times do %><span class="glyphicon glyphicon-star"><% end %></p>
+             <p>Rating: <% review.rating.to_i.times do %><span class="glyphicon glyphicon-star"></span><% end %></p>
              <p class=""><%= review.content %></p>
              <p><%= image_tag review.photo.url if review.photo? %></p>
 
