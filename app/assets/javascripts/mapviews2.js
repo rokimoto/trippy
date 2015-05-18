@@ -48,7 +48,7 @@ $(document).ready(function() {
         var indivrev = "<div class='well text-left'>";
 
         /*** reviewer's name ***/
-        indivrev += "<div class='revname'><h5> " + item.user_name + "</h5></div>";
+        indivrev += "<div class='revname'><strong> " + item.user_name + "</strong><span class='italic'> " + item.created_at.slice(0,10) + "</span></div>";
 
         /*** review rating as stars ***/
         indivrev += "<div class='revstars'>";
@@ -63,7 +63,7 @@ $(document).ready(function() {
 
         /*** pushes photo to image gallery ***/
         if(item.photo.url) {
-          imageGallery += String("<div><img class='img-rounded' src=" + item.photo.url + "></div>");
+          imageGallery += String("<img class='img-thumbnail gallery-image' src=" + item.photo.url + ">");
         }
 
         indivrev += "</div>";
