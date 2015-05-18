@@ -40,8 +40,12 @@
    }
 
 // Modal Styling Code Block
-#showModal {
+@media (min-width: 992px) {
+      #locations-modal {
+         width: 800px;
+      }
 }
+
 .modal{
    font-family: 'Josefin-sans', sans-serif;
    .modal-body{
@@ -178,3 +182,4 @@
       display: inline-block;
    }
 }
+
