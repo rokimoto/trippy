@@ -24,6 +24,11 @@ $(document).ready(function() {
     $.get('/api/locations_api/yelp/' + yelp_id, function(data) {
       console.log(data);
 
+      /*** address ***/
+      yelpContent += "<div>Address: ";
+      yelpContent += data.location.display_address || "No info";
+      yelpContent +=  "</div>";
+
       /*** phone number ***/
       yelpContent += "<div>Phone: ";
       yelpContent += data.display_phone || "No info";
@@ -158,7 +163,6 @@ $(document).ready(function() {
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
     var bounds = new google.maps.LatLngBounds();
 
-    console.log(data);
     var marker_array = [];
     var id_array = [];
     for (var i = 0; i < data.length; i++) {
@@ -175,7 +179,7 @@ $(document).ready(function() {
       marker_array.push(mark);
       bounds.extend(mark.position);
     } // end first for loop
-
+    console.log(id_array);
     // attaches event listeners to each infowindow
     for (var x = 0; x < marker_array.length; x++) {
       var item = marker_array[x];
@@ -189,13 +193,13 @@ $(document).ready(function() {
         var id = this.id;
 
         var yelp_id = id_array[id];
-        console.log("this.yelp_id" + yelp_id)
+        console.log("this.yelp_id" + yelp_id);
         var name = this.title;
         var div = document.createElement('div');
         div.innerHTML = "<div class='iw-title'>" + this.title + "</div><div class='iw-content'><strong>Click Again</strong> to See the Location</div>";
         infowindow.setContent(div);
         div.onclick = function(){
-          console.log("before fill modal call" + yelp_id)
+          console.log("before fill modal call" + yelp_id);
           fillModal(name, id, yelp_id);
           
           $('#showModal').modal('show')
