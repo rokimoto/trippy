@@ -19,6 +19,9 @@ module Api
 
     def reviews
       reviews = Location.find(params[:id]).reviews
+      # reviews.each do |review|
+      #   review.created_at = review.created_at.localtime.strftime("%-m/%-d/%Y")
+      # end
       render json: reviews
     end
 
