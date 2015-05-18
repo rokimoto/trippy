@@ -159,7 +159,7 @@ $(document).ready(function() {
 
     console.log(data);
     var marker_array = [];
-
+    var id_array = [];
     for (var i = 0; i < data.length; i++) {
       var mark = new google.maps.Marker({
         position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
@@ -170,7 +170,7 @@ $(document).ready(function() {
         animation: google.maps.Animation.DROP
 
       }); // close new marker
-
+      id_array[data[i].id] = data[i].yelp_id;
       marker_array.push(mark);
       bounds.extend(mark.position);
     } // end first for loop
@@ -187,7 +187,7 @@ $(document).ready(function() {
       google.maps.event.addListener(item, "click", function (e) {
         var id = this.id;
 
-        var yelp_id = this.yelp_id;
+        var yelp_id = id_array[id];
         console.log("this.yelp_id" + yelp_id)
         var name = this.title;
         var div = document.createElement('div');
