@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   // creates the content within the modal
   function fillModal(name, id, yelp_id) {
+    console.log("Yelp id" + yelp_id)
     $('#myModalLabel').text(name);
     $('#like_location_id').val(id);
     $("#addReviewButton").attr("href", "/locations/" + id);
@@ -185,6 +186,7 @@ $(document).ready(function() {
       //
       google.maps.event.addListener(item, "click", function (e) {
         var id = this.id;
+        console.log("this.id" + id)
         var yelp_id = this.yelp_id;
         var name = this.title;
         var div = document.createElement('div');
@@ -192,6 +194,7 @@ $(document).ready(function() {
         infowindow.setContent(div);
         div.onclick = function(){
           fillModal(name, id, yelp_id);
+          console.log("under fill modal call" + id)
           $('#showModal').modal('show')
         };
         infowindow.open(map, this);
