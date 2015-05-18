@@ -186,15 +186,17 @@ $(document).ready(function() {
       //
       google.maps.event.addListener(item, "click", function (e) {
         var id = this.id;
-        console.log("this.id" + id)
+
         var yelp_id = this.yelp_id;
+        console.log("this.yelp_id" + yelp_id)
         var name = this.title;
         var div = document.createElement('div');
         div.innerHTML = "<div class='iw-title'>" + this.title + "</div><div class='iw-content'><strong>Click Again</strong> to See the Location</div>";
         infowindow.setContent(div);
         div.onclick = function(){
+          console.log("before fill modal call" + yelp_id)
           fillModal(name, id, yelp_id);
-          console.log("under fill modal call" + id)
+          
           $('#showModal').modal('show')
         };
         infowindow.open(map, this);
