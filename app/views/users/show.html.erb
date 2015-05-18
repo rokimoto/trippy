@@ -113,7 +113,7 @@
          <div class="review_library">
             <h3>Recent Reviews</h3>
             <% if @user.reviews.any? %>
-               <% @user.reviews.limit(5).each do |review| %>
+               <% @user.reviews.limit(10).each do |review| %>
                   <div class="user-review-container">
                     <p class="box-top">
                        <strong><span class="review-location-name"><%= link_to Location.find(review.location_id).name, locations_path(:search => Location.find(review.location_id).name, :search_type => "Name"), 'data-no-turbolink' => true  %></span></strong> <%= review.date_added %>
