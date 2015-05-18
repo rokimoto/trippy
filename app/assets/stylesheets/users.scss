@@ -32,7 +32,10 @@
 // Profile Page Code Block
 .users.show{
    font-family: 'Josefin sans', sans-serif;
-
+   .bio {
+      margin-left: 20px;
+      margin-right: 10px;
+   }
    // This biopanel contains all the user attributes and button
    .biopanel{
       color: black;
